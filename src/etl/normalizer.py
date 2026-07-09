@@ -1,23 +1,143 @@
 import pandas as pd
-from src.etl.logger import logger
+import numpy as np
+
 
 class DataNormalizer:
-    @staticmethod
-    def normalize(df: pd.DataFrame) -> pd.DataFrame:
-        logger.info("Normalizing Dataset Content...")
 
-        for column in df.columns:
-            # Clean string columns
-            if df[column].dtype == "object":
-                df[column] = (
-                    df[column]
+    @staticmethod
+    def normalize_nulls(df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Replace common null-like values with NaN.
+        """
+        df.replace(
+            ["", "NA", "N/A", "NULL", "-", "--", "None"],
+            np.nan,
+            inplace=True
+        )
+        return df
+
+    @staticmethod
+    def normalize_year(df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Convert year columns to integer.
+        """
+        year_columns = [
+            col for col in df.columns
+            if "year" in col.lower()
+        ]
+
+        for col in year_columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+            df[col] = df[col].astype("Int64")
+
+        return df
+
+    @staticmethod
+    def normalize_ticker(df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Standardize stock ticker symbols.
+        """
+        ticker_columns = [
+            "ticker",
+            "symbol",
+            "stock_symbol",
+            "nse_symbol",
+            "bse_symbol"
+        ]
+
+        for col in ticker_columns:
+            if col in df.columns:
+                df[col] = (
+                    df[col]
                     .fillna("")
                     .astype(str)
-                    .str.replace("\n", " ")
+                    .str.upper()
                     .str.strip()
                 )
-                
-        # Optional: drop empty rows if they exist
-        df = df.dropna(how='all')
-        
+
+        return df
+
+    @staticmethod
+    def normalize_currency(df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Convert numeric financial columns.
+        """
+        for col in df.columns:
+
+            if df[col].dtype == "object":
+
+                sample = df[col].dropna().astype(str)
+
+                if sample.empty:
+                    continue
+
+                if sample.str.contains(r"\d").mean() > 0.7:
+
+                    df[col] = (
+                        df[col]
+                        .astype(str)
+                        .str.replace(",", "", regex=False)
+                        .str.replace("₹", "", regex=False)
+                        .str.strip()
+                    )
+
+                    df[col] = pd.to_numeric(
+                        df[col],
+                        errors="coerce"
+                    )
+
+        return df
+
+    @staticmethod
+    def normalize_percentage(df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Remove percentage signs.
+        """
+        for col in df.columns:
+
+            if "%" in col.lower() or "ratio" in col.lower():
+
+                df[col] = (
+                    df[col]
+                    .astype(str)
+                    .str.replace("%", "", regex=False)
+                )
+
+                df[col] = pd.to_numeric(
+                    df[col],
+                    errors="coerce"
+                )
+
+        return df
+
+    @staticmethod
+    def normalize_text(df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Clean text columns.
+        """
+        object_columns = df.select_dtypes(include="object").columns
+
+        for col in object_columns:
+
+            df[col] = (
+                df[col]
+                .fillna("")
+                .astype(str)
+                .str.strip()
+            )
+
+        return df
+
+    @classmethod
+    def normalize(cls, df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Execute complete normalization pipeline.
+        """
+        df = cls.normalize_nulls(df)
+        df = cls.normalize_year(df)
+        df = cls.normalize_ticker(df)
+        df = cls.normalize_currency(df)
+        df = cls.normalize_percentage(df)
+        df = cls.normalize_text(df)
+
         return df

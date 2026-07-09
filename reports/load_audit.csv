@@ -1,0 +1,13 @@
+Dataset,Table,Rows Read,Rows Loaded,Rows Rejected,Status,Load Time (sec)
+companies.xlsx,companies,0,0,0,FAILED,0.43
+profitandloss.xlsx,profit_loss,0,0,0,FAILED,6.5
+balancesheet.xlsx,balance_sheet,0,0,0,FAILED,5.03
+cashflow.xlsx,cash_flow,0,0,0,FAILED,0.9
+analysis.xlsx,analysis,21,21,0,SUCCESS,0.04
+documents.xlsx,documents,1586,1586,0,SUCCESS,0.47
+prosandcons.xlsx,pros_cons,17,17,0,SUCCESS,0.02
+financial_ratios.xlsx,financial_ratios,0,0,0,FAILED,0.17
+stock_prices.xlsx,stock_prices,5520,5520,0,SUCCESS,1.32
+market_cap.xlsx,market_cap,552,552,0,SUCCESS,0.14
+peer_groups.xlsx,peer_groups,56,56,0,SUCCESS,0.02
+sectors.xlsx,sectors,92,92,0,SUCCESS,0.03

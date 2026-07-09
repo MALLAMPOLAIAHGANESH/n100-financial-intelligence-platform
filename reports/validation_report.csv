@@ -1,0 +1,14 @@
+Dataset,Rule ID,Rule,Severity,Status,Details
+companies,DQ-15,Missing Values,WARNING,PASS,Mkt Fintech — Nifty 100  |  Companies  |  92 records: No Missing Values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 1: 1 Missing Values
+companies,DQ-15,Missing Values,WARNING,PASS,Unnamed: 2: No Missing Values
+companies,DQ-15,Missing Values,WARNING,PASS,Unnamed: 3: No Missing Values
+companies,DQ-15,Missing Values,WARNING,PASS,Unnamed: 4: No Missing Values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 5: 1 Missing Values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 6: 1 Missing Values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 7: 1 Missing Values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 8: 1 Missing Values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 9: 1 Missing Values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 10: 1 Missing Values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 11: 2 Missing Values
+companies,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
