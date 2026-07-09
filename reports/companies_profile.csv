@@ -1,0 +1,13 @@
+Column,Data Type,Missing,Missing %,Unique
+Mkt Fintech — Nifty 100  |  Companies  |  92 records,str,0,0.0,93
+Unnamed: 1,str,1,1.08,91
+Unnamed: 2,str,0,0.0,93
+Unnamed: 3,str,0,0.0,55
+Unnamed: 4,str,0,0.0,93
+Unnamed: 5,str,1,1.08,91
+Unnamed: 6,str,1,1.08,92
+Unnamed: 7,str,1,1.08,92
+Unnamed: 8,object,1,1.08,5
+Unnamed: 9,object,1,1.08,85
+Unnamed: 10,object,1,1.08,85
+Unnamed: 11,object,2,2.15,86
