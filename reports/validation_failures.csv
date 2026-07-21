@@ -1,9 +1,26 @@
 Dataset,Column,Rule,Value,Severity
-companies,Unnamed: 1,Missing Values,NULL,WARNING
-companies,Unnamed: 5,Missing Values,NULL,WARNING
-companies,Unnamed: 6,Missing Values,NULL,WARNING
-companies,Unnamed: 7,Missing Values,NULL,WARNING
-companies,Unnamed: 8,Missing Values,NULL,WARNING
-companies,Unnamed: 9,Missing Values,NULL,WARNING
-companies,Unnamed: 10,Missing Values,NULL,WARNING
-companies,Unnamed: 11,Missing Values,NULL,WARNING
+companies,face_value,Missing Values,NULL,WARNING
+companies,book_value,Missing Values,NULL,WARNING
+companies,roce_percentage,Missing Values,NULL,WARNING
+companies,roe_percentage,Missing Values,NULL,WARNING
+profit_loss,year,Missing Values,NULL,WARNING
+profit_loss,operating_profit,Missing Values,NULL,WARNING
+profit_loss,opm_percentage,Missing Values,NULL,WARNING
+profit_loss,tax_percentage,Missing Values,NULL,WARNING
+profit_loss,eps,Missing Values,NULL,WARNING
+profit_loss,dividend_payout,Missing Values,NULL,WARNING
+cash_flow,year,Missing Values,NULL,WARNING
+cash_flow,operating_activity,Missing Values,NULL,WARNING
+cash_flow,investing_activity,Missing Values,NULL,WARNING
+cash_flow,financing_activity,Missing Values,NULL,WARNING
+cash_flow,net_cash_flow,Missing Values,NULL,WARNING
+financial_ratios,year,Missing Values,NULL,WARNING
+financial_ratios,net_profit_margin_pct,Missing Values,NULL,WARNING
+financial_ratios,operating_profit_margin_pct,Missing Values,NULL,WARNING
+financial_ratios,interest_coverage,Missing Values,NULL,WARNING
+financial_ratios,asset_turnover,Missing Values,NULL,WARNING
+financial_ratios,free_cash_flow_cr,Missing Values,NULL,WARNING
+financial_ratios,capex_cr,Missing Values,NULL,WARNING
+financial_ratios,earnings_per_share,Missing Values,NULL,WARNING
+financial_ratios,dividend_payout_ratio_pct,Missing Values,NULL,WARNING
+financial_ratios,cash_from_operations_cr,Missing Values,NULL,WARNING

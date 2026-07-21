@@ -1,14 +1,104 @@
 Dataset,Rule ID,Rule,Severity,Status,Details
-companies,DQ-15,Missing Values,WARNING,PASS,Mkt Fintech — Nifty 100  |  Companies  |  92 records: No Missing Values
-companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 1: 1 Missing Values
-companies,DQ-15,Missing Values,WARNING,PASS,Unnamed: 2: No Missing Values
-companies,DQ-15,Missing Values,WARNING,PASS,Unnamed: 3: No Missing Values
-companies,DQ-15,Missing Values,WARNING,PASS,Unnamed: 4: No Missing Values
-companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 5: 1 Missing Values
-companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 6: 1 Missing Values
-companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 7: 1 Missing Values
-companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 8: 1 Missing Values
-companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 9: 1 Missing Values
-companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 10: 1 Missing Values
-companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 11: 2 Missing Values
+companies,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
+companies,DQ-15,Missing Values,WARNING,PASS,company_logo: No Missing Values
+companies,DQ-15,Missing Values,WARNING,PASS,company_name: No Missing Values
+companies,DQ-15,Missing Values,WARNING,PASS,chart_link: No Missing Values
+companies,DQ-15,Missing Values,WARNING,PASS,about_company: No Missing Values
+companies,DQ-15,Missing Values,WARNING,PASS,website: No Missing Values
+companies,DQ-15,Missing Values,WARNING,PASS,nse_profile: No Missing Values
+companies,DQ-15,Missing Values,WARNING,PASS,bse_profile: No Missing Values
+companies,DQ-15,Missing Values,WARNING,FAIL,face_value: 1 Missing Values
+companies,DQ-15,Missing Values,WARNING,FAIL,book_value: 1 Missing Values
+companies,DQ-15,Missing Values,WARNING,FAIL,roce_percentage: 1 Missing Values
+companies,DQ-15,Missing Values,WARNING,FAIL,roe_percentage: 2 Missing Values
 companies,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
+profit_loss,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,FAIL,year: 1276 Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,sales: No Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,expenses: No Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,FAIL,operating_profit: 13 Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,FAIL,opm_percentage: 15 Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,other_income: No Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,interest: No Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,depreciation: No Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,profit_before_tax: No Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,FAIL,tax_percentage: 95 Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,net_profit: No Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,FAIL,eps: 5 Missing Values
+profit_loss,DQ-15,Missing Values,WARNING,FAIL,dividend_payout: 103 Missing Values
+profit_loss,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
+cash_flow,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
+cash_flow,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
+cash_flow,DQ-15,Missing Values,WARNING,FAIL,year: 1187 Missing Values
+cash_flow,DQ-15,Missing Values,WARNING,FAIL,operating_activity: 2 Missing Values
+cash_flow,DQ-15,Missing Values,WARNING,FAIL,investing_activity: 2 Missing Values
+cash_flow,DQ-15,Missing Values,WARNING,FAIL,financing_activity: 2 Missing Values
+cash_flow,DQ-15,Missing Values,WARNING,FAIL,net_cash_flow: 2 Missing Values
+cash_flow,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
+analysis,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
+analysis,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
+analysis,DQ-15,Missing Values,WARNING,PASS,compounded_sales_growth: No Missing Values
+analysis,DQ-15,Missing Values,WARNING,PASS,compounded_profit_growth: No Missing Values
+analysis,DQ-15,Missing Values,WARNING,PASS,stock_price_cagr: No Missing Values
+analysis,DQ-15,Missing Values,WARNING,PASS,roe: No Missing Values
+analysis,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
+documents,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
+documents,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
+documents,DQ-15,Missing Values,WARNING,PASS,year: No Missing Values
+documents,DQ-15,Missing Values,WARNING,PASS,annual_report: No Missing Values
+documents,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
+pros_cons,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
+pros_cons,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
+pros_cons,DQ-15,Missing Values,WARNING,PASS,pros: No Missing Values
+pros_cons,DQ-15,Missing Values,WARNING,PASS,cons: No Missing Values
+pros_cons,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
+financial_ratios,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,year: 1184 Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,net_profit_margin_pct: 1 Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,operating_profit_margin_pct: 61 Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,PASS,return_on_equity_pct: No Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,PASS,debt_to_equity: No Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,interest_coverage: 93 Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,asset_turnover: 1 Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,free_cash_flow_cr: 2 Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,capex_cr: 2 Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,earnings_per_share: 4 Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,PASS,book_value_per_share: No Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,dividend_payout_ratio_pct: 4 Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,PASS,total_debt_cr: No Missing Values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,cash_from_operations_cr: 2 Missing Values
+financial_ratios,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
+stock_prices,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,date: No Missing Values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,open_price: No Missing Values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,high_price: No Missing Values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,low_price: No Missing Values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,close_price: No Missing Values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,volume: No Missing Values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,adjusted_close: No Missing Values
+stock_prices,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
+market_cap,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
+market_cap,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
+market_cap,DQ-15,Missing Values,WARNING,PASS,year: No Missing Values
+market_cap,DQ-15,Missing Values,WARNING,PASS,market_cap_crore: No Missing Values
+market_cap,DQ-15,Missing Values,WARNING,PASS,enterprise_value_crore: No Missing Values
+market_cap,DQ-15,Missing Values,WARNING,PASS,pe_ratio: No Missing Values
+market_cap,DQ-15,Missing Values,WARNING,PASS,pb_ratio: No Missing Values
+market_cap,DQ-15,Missing Values,WARNING,PASS,ev_ebitda: No Missing Values
+market_cap,DQ-15,Missing Values,WARNING,PASS,dividend_yield_pct: No Missing Values
+market_cap,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
+peer_groups,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
+peer_groups,DQ-15,Missing Values,WARNING,PASS,peer_group_name: No Missing Values
+peer_groups,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
+peer_groups,DQ-15,Missing Values,WARNING,PASS,is_benchmark: No Missing Values
+peer_groups,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
+sectors,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
+sectors,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
+sectors,DQ-15,Missing Values,WARNING,PASS,broad_sector: No Missing Values
+sectors,DQ-15,Missing Values,WARNING,PASS,sub_sector: No Missing Values
+sectors,DQ-15,Missing Values,WARNING,PASS,index_weight_pct: No Missing Values
+sectors,DQ-15,Missing Values,WARNING,PASS,market_cap_category: No Missing Values
+sectors,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows

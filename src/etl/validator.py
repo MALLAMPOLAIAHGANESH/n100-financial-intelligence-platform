@@ -1,6 +1,6 @@
 import re
 import pandas as pd
-
+from src.etl.dq_engine import DataQualityEngine
 
 class DataValidator:
 
@@ -154,10 +154,12 @@ class DataValidator:
         ]
 
         for col in year_columns:
-
+            
+            # Convert to numeric temporarily to safely check boundaries
+            numeric_years = pd.to_numeric(df[col], errors="coerce")
             invalid = df[
-                (df[col] < 1990) |
-                (df[col] > 2035)
+                (numeric_years < 1990) |
+                (numeric_years > 2035)
             ]
 
             if len(invalid):
@@ -213,6 +215,24 @@ class DataValidator:
         self.validate_urls(df, dataset)
 
         return df
+
+    def run_all(self, df: pd.DataFrame, dataset: str) -> DataQualityEngine:
+        """Run both custom validator checks and the full DQ engine.
+
+        Returns
+        -------
+        DataQualityEngine
+            Engine containing combined DQ results.
+        """
+        # Run the existing validator checks
+        _ = self.validate(df, dataset)
+        # Run the comprehensive DQ engine
+        engine = DataQualityEngine()
+        engine.run(df, dataset)
+        # Merge engine results into this validator's report structures
+        self.report.extend(engine.report)
+        self.failures.extend(engine.failures)
+        return engine
 
     def get_report(self):
 
