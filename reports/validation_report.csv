@@ -1,104 +1,274 @@
 Dataset,Rule ID,Rule,Severity,Status,Details
-companies,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
-companies,DQ-15,Missing Values,WARNING,PASS,company_logo: No Missing Values
-companies,DQ-15,Missing Values,WARNING,PASS,company_name: No Missing Values
-companies,DQ-15,Missing Values,WARNING,PASS,chart_link: No Missing Values
-companies,DQ-15,Missing Values,WARNING,PASS,about_company: No Missing Values
-companies,DQ-15,Missing Values,WARNING,PASS,website: No Missing Values
-companies,DQ-15,Missing Values,WARNING,PASS,nse_profile: No Missing Values
-companies,DQ-15,Missing Values,WARNING,PASS,bse_profile: No Missing Values
-companies,DQ-15,Missing Values,WARNING,FAIL,face_value: 1 Missing Values
-companies,DQ-15,Missing Values,WARNING,FAIL,book_value: 1 Missing Values
-companies,DQ-15,Missing Values,WARNING,FAIL,roce_percentage: 1 Missing Values
-companies,DQ-15,Missing Values,WARNING,FAIL,roe_percentage: 2 Missing Values
-companies,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
-profit_loss,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,FAIL,year: 1276 Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,PASS,sales: No Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,PASS,expenses: No Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,FAIL,operating_profit: 13 Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,FAIL,opm_percentage: 15 Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,PASS,other_income: No Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,PASS,interest: No Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,PASS,depreciation: No Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,PASS,profit_before_tax: No Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,FAIL,tax_percentage: 95 Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,PASS,net_profit: No Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,FAIL,eps: 5 Missing Values
-profit_loss,DQ-15,Missing Values,WARNING,FAIL,dividend_payout: 103 Missing Values
-profit_loss,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
-cash_flow,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
-cash_flow,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
-cash_flow,DQ-15,Missing Values,WARNING,FAIL,year: 1187 Missing Values
-cash_flow,DQ-15,Missing Values,WARNING,FAIL,operating_activity: 2 Missing Values
-cash_flow,DQ-15,Missing Values,WARNING,FAIL,investing_activity: 2 Missing Values
-cash_flow,DQ-15,Missing Values,WARNING,FAIL,financing_activity: 2 Missing Values
-cash_flow,DQ-15,Missing Values,WARNING,FAIL,net_cash_flow: 2 Missing Values
-cash_flow,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
-analysis,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
-analysis,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
-analysis,DQ-15,Missing Values,WARNING,PASS,compounded_sales_growth: No Missing Values
-analysis,DQ-15,Missing Values,WARNING,PASS,compounded_profit_growth: No Missing Values
-analysis,DQ-15,Missing Values,WARNING,PASS,stock_price_cagr: No Missing Values
-analysis,DQ-15,Missing Values,WARNING,PASS,roe: No Missing Values
-analysis,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
-documents,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
-documents,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
-documents,DQ-15,Missing Values,WARNING,PASS,year: No Missing Values
-documents,DQ-15,Missing Values,WARNING,PASS,annual_report: No Missing Values
-documents,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
-pros_cons,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
-pros_cons,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
-pros_cons,DQ-15,Missing Values,WARNING,PASS,pros: No Missing Values
-pros_cons,DQ-15,Missing Values,WARNING,PASS,cons: No Missing Values
-pros_cons,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
-financial_ratios,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,FAIL,year: 1184 Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,FAIL,net_profit_margin_pct: 1 Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,FAIL,operating_profit_margin_pct: 61 Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,PASS,return_on_equity_pct: No Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,PASS,debt_to_equity: No Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,FAIL,interest_coverage: 93 Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,FAIL,asset_turnover: 1 Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,FAIL,free_cash_flow_cr: 2 Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,FAIL,capex_cr: 2 Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,FAIL,earnings_per_share: 4 Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,PASS,book_value_per_share: No Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,FAIL,dividend_payout_ratio_pct: 4 Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,PASS,total_debt_cr: No Missing Values
-financial_ratios,DQ-15,Missing Values,WARNING,FAIL,cash_from_operations_cr: 2 Missing Values
-financial_ratios,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
-stock_prices,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
-stock_prices,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
-stock_prices,DQ-15,Missing Values,WARNING,PASS,date: No Missing Values
-stock_prices,DQ-15,Missing Values,WARNING,PASS,open_price: No Missing Values
-stock_prices,DQ-15,Missing Values,WARNING,PASS,high_price: No Missing Values
-stock_prices,DQ-15,Missing Values,WARNING,PASS,low_price: No Missing Values
-stock_prices,DQ-15,Missing Values,WARNING,PASS,close_price: No Missing Values
-stock_prices,DQ-15,Missing Values,WARNING,PASS,volume: No Missing Values
-stock_prices,DQ-15,Missing Values,WARNING,PASS,adjusted_close: No Missing Values
-stock_prices,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
-market_cap,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
-market_cap,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
-market_cap,DQ-15,Missing Values,WARNING,PASS,year: No Missing Values
-market_cap,DQ-15,Missing Values,WARNING,PASS,market_cap_crore: No Missing Values
-market_cap,DQ-15,Missing Values,WARNING,PASS,enterprise_value_crore: No Missing Values
-market_cap,DQ-15,Missing Values,WARNING,PASS,pe_ratio: No Missing Values
-market_cap,DQ-15,Missing Values,WARNING,PASS,pb_ratio: No Missing Values
-market_cap,DQ-15,Missing Values,WARNING,PASS,ev_ebitda: No Missing Values
-market_cap,DQ-15,Missing Values,WARNING,PASS,dividend_yield_pct: No Missing Values
-market_cap,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
-peer_groups,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
-peer_groups,DQ-15,Missing Values,WARNING,PASS,peer_group_name: No Missing Values
-peer_groups,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
-peer_groups,DQ-15,Missing Values,WARNING,PASS,is_benchmark: No Missing Values
-peer_groups,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
-sectors,DQ-15,Missing Values,WARNING,PASS,id: No Missing Values
-sectors,DQ-15,Missing Values,WARNING,PASS,company_id: No Missing Values
-sectors,DQ-15,Missing Values,WARNING,PASS,broad_sector: No Missing Values
-sectors,DQ-15,Missing Values,WARNING,PASS,sub_sector: No Missing Values
-sectors,DQ-15,Missing Values,WARNING,PASS,index_weight_pct: No Missing Values
-sectors,DQ-15,Missing Values,WARNING,PASS,market_cap_category: No Missing Values
-sectors,DQ-16,Duplicate Records,WARNING,PASS,No Duplicate Rows
+companies,DQ-01,Primary Key Uniqueness,CRITICAL,FAIL,No primary key column found
+companies,DQ-02,Company-Year Uniqueness,CRITICAL,FAIL,Missing columns for composite key: {'year'}
+companies,DQ-04,Balance Sheet Validation,WARNING,FAIL,"Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}"
+companies,DQ-05,Operating Profit Margin Validation,WARNING,PASS,No OPM column found – skipped
+companies,DQ-06,Positive Sales Validation,WARNING,PASS,No sales column found – skipped
+companies,DQ-07,Year Validation,WARNING,PASS,No year column found – skipped
+companies,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+companies,DQ-09,URL Validation,WARNING,FAIL,website: 1 invalid URLs
+companies,DQ-10,Year Coverage,INFO,PASS,Missing company_id/year – skipped
+companies,DQ-11,Dividend Validation,WARNING,PASS,No dividend column found – skipped
+companies,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+companies,DQ-13,Market Cap Validation,WARNING,PASS,No market cap column found – skipped
+companies,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+companies,DQ-15,Missing Values,WARNING,PASS,company_id: no missing values
+companies,DQ-15,Missing Values,WARNING,PASS,company_logo: no missing values
+companies,DQ-15,Missing Values,WARNING,PASS,company_name: no missing values
+companies,DQ-15,Missing Values,WARNING,PASS,chart_link: no missing values
+companies,DQ-15,Missing Values,WARNING,PASS,about_company: no missing values
+companies,DQ-15,Missing Values,WARNING,PASS,website: no missing values
+companies,DQ-15,Missing Values,WARNING,PASS,nse_profile: no missing values
+companies,DQ-15,Missing Values,WARNING,PASS,bse_profile: no missing values
+companies,DQ-15,Missing Values,WARNING,FAIL,face_value: 1 missing values
+companies,DQ-15,Missing Values,WARNING,FAIL,book_value: 1 missing values
+companies,DQ-15,Missing Values,WARNING,FAIL,roce_percentage: 1 missing values
+companies,DQ-15,Missing Values,WARNING,FAIL,roe_percentage: 2 missing values
+companies,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows
+profit_loss,DQ-01,Primary Key Uniqueness,CRITICAL,PASS,id: all values unique and non-null
+profit_loss,DQ-02,Company-Year Uniqueness,CRITICAL,FAIL,"1176 duplicate (company_id, year) combinations"
+profit_loss,DQ-04,Balance Sheet Validation,WARNING,FAIL,"Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}"
+profit_loss,DQ-05,Operating Profit Margin Validation,WARNING,FAIL,"opm_percentage: 1243 values outside [-100%, 100%]"
+profit_loss,DQ-06,Positive Sales Validation,WARNING,FAIL,sales: 1 non-positive values
+profit_loss,DQ-07,Year Validation,WARNING,PASS,year: all years in range
+profit_loss,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+profit_loss,DQ-09,URL Validation,WARNING,PASS,No URL column found – skipped
+profit_loss,DQ-10,Year Coverage,INFO,FAIL,100 companies have <3 years of data
+profit_loss,DQ-11,Dividend Validation,WARNING,FAIL,"dividend_payout: 1032 values outside [0%, 50%]"
+profit_loss,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+profit_loss,DQ-13,Market Cap Validation,WARNING,PASS,No market cap column found – skipped
+profit_loss,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+profit_loss,DQ-15,Missing Values,WARNING,PASS,id: no missing values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,company_id: no missing values
+profit_loss,DQ-15,Missing Values,WARNING,FAIL,year: 1276 missing values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,sales: no missing values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,expenses: no missing values
+profit_loss,DQ-15,Missing Values,WARNING,FAIL,operating_profit: 13 missing values
+profit_loss,DQ-15,Missing Values,WARNING,FAIL,opm_percentage: 15 missing values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,other_income: no missing values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,interest: no missing values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,depreciation: no missing values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,profit_before_tax: no missing values
+profit_loss,DQ-15,Missing Values,WARNING,FAIL,tax_percentage: 95 missing values
+profit_loss,DQ-15,Missing Values,WARNING,PASS,net_profit: no missing values
+profit_loss,DQ-15,Missing Values,WARNING,FAIL,eps: 5 missing values
+profit_loss,DQ-15,Missing Values,WARNING,FAIL,dividend_payout: 103 missing values
+profit_loss,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows
+balance_sheet,DQ-01,Primary Key Uniqueness,CRITICAL,PASS,id: all values unique and non-null
+balance_sheet,DQ-02,Company-Year Uniqueness,CRITICAL,FAIL,"1159 duplicate (company_id, year) combinations"
+balance_sheet,DQ-04,Balance Sheet Validation,WARNING,FAIL,Missing columns: {'total_equity'}
+balance_sheet,DQ-05,Operating Profit Margin Validation,WARNING,PASS,No OPM column found – skipped
+balance_sheet,DQ-06,Positive Sales Validation,WARNING,PASS,No sales column found – skipped
+balance_sheet,DQ-07,Year Validation,WARNING,PASS,year: all years in range
+balance_sheet,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+balance_sheet,DQ-09,URL Validation,WARNING,PASS,No URL column found – skipped
+balance_sheet,DQ-10,Year Coverage,INFO,FAIL,93 companies have <3 years of data
+balance_sheet,DQ-11,Dividend Validation,WARNING,PASS,No dividend column found – skipped
+balance_sheet,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+balance_sheet,DQ-13,Market Cap Validation,WARNING,PASS,No market cap column found – skipped
+balance_sheet,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+balance_sheet,DQ-15,Missing Values,WARNING,PASS,id: no missing values
+balance_sheet,DQ-15,Missing Values,WARNING,PASS,company_id: no missing values
+balance_sheet,DQ-15,Missing Values,WARNING,FAIL,year: 1252 missing values
+balance_sheet,DQ-15,Missing Values,WARNING,PASS,equity_capital: no missing values
+balance_sheet,DQ-15,Missing Values,WARNING,PASS,reserves: no missing values
+balance_sheet,DQ-15,Missing Values,WARNING,PASS,borrowings: no missing values
+balance_sheet,DQ-15,Missing Values,WARNING,PASS,other_liabilities: no missing values
+balance_sheet,DQ-15,Missing Values,WARNING,PASS,total_liabilities: no missing values
+balance_sheet,DQ-15,Missing Values,WARNING,PASS,fixed_assets: no missing values
+balance_sheet,DQ-15,Missing Values,WARNING,PASS,cwip: no missing values
+balance_sheet,DQ-15,Missing Values,WARNING,PASS,investments: no missing values
+balance_sheet,DQ-15,Missing Values,WARNING,PASS,other_asset: no missing values
+balance_sheet,DQ-15,Missing Values,WARNING,PASS,total_assets: no missing values
+balance_sheet,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows
+cash_flow,DQ-01,Primary Key Uniqueness,CRITICAL,PASS,id: all values unique and non-null
+cash_flow,DQ-02,Company-Year Uniqueness,CRITICAL,FAIL,"1087 duplicate (company_id, year) combinations"
+cash_flow,DQ-04,Balance Sheet Validation,WARNING,FAIL,"Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}"
+cash_flow,DQ-05,Operating Profit Margin Validation,WARNING,PASS,No OPM column found – skipped
+cash_flow,DQ-06,Positive Sales Validation,WARNING,PASS,No sales column found – skipped
+cash_flow,DQ-07,Year Validation,WARNING,PASS,year: all years in range
+cash_flow,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+cash_flow,DQ-09,URL Validation,WARNING,PASS,No URL column found – skipped
+cash_flow,DQ-10,Year Coverage,INFO,FAIL,100 companies have <3 years of data
+cash_flow,DQ-11,Dividend Validation,WARNING,PASS,No dividend column found – skipped
+cash_flow,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+cash_flow,DQ-13,Market Cap Validation,WARNING,PASS,No market cap column found – skipped
+cash_flow,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+cash_flow,DQ-15,Missing Values,WARNING,PASS,id: no missing values
+cash_flow,DQ-15,Missing Values,WARNING,PASS,company_id: no missing values
+cash_flow,DQ-15,Missing Values,WARNING,FAIL,year: 1187 missing values
+cash_flow,DQ-15,Missing Values,WARNING,FAIL,operating_activity: 2 missing values
+cash_flow,DQ-15,Missing Values,WARNING,FAIL,investing_activity: 2 missing values
+cash_flow,DQ-15,Missing Values,WARNING,FAIL,financing_activity: 2 missing values
+cash_flow,DQ-15,Missing Values,WARNING,FAIL,net_cash_flow: 2 missing values
+cash_flow,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows
+analysis,DQ-01,Primary Key Uniqueness,CRITICAL,PASS,id: all values unique and non-null
+analysis,DQ-02,Company-Year Uniqueness,CRITICAL,FAIL,Missing columns for composite key: {'year'}
+analysis,DQ-04,Balance Sheet Validation,WARNING,FAIL,"Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}"
+analysis,DQ-05,Operating Profit Margin Validation,WARNING,PASS,No OPM column found – skipped
+analysis,DQ-06,Positive Sales Validation,WARNING,PASS,No sales column found – skipped
+analysis,DQ-07,Year Validation,WARNING,PASS,No year column found – skipped
+analysis,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+analysis,DQ-09,URL Validation,WARNING,PASS,No URL column found – skipped
+analysis,DQ-10,Year Coverage,INFO,PASS,Missing company_id/year – skipped
+analysis,DQ-11,Dividend Validation,WARNING,PASS,No dividend column found – skipped
+analysis,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+analysis,DQ-13,Market Cap Validation,WARNING,PASS,No market cap column found – skipped
+analysis,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+analysis,DQ-15,Missing Values,WARNING,PASS,id: no missing values
+analysis,DQ-15,Missing Values,WARNING,PASS,company_id: no missing values
+analysis,DQ-15,Missing Values,WARNING,PASS,compounded_sales_growth: no missing values
+analysis,DQ-15,Missing Values,WARNING,PASS,compounded_profit_growth: no missing values
+analysis,DQ-15,Missing Values,WARNING,PASS,stock_price_cagr: no missing values
+analysis,DQ-15,Missing Values,WARNING,PASS,roe: no missing values
+analysis,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows
+documents,DQ-01,Primary Key Uniqueness,CRITICAL,PASS,id: all values unique and non-null
+documents,DQ-02,Company-Year Uniqueness,CRITICAL,FAIL,"1 duplicate (company_id, year) combinations"
+documents,DQ-04,Balance Sheet Validation,WARNING,FAIL,"Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}"
+documents,DQ-05,Operating Profit Margin Validation,WARNING,PASS,No OPM column found – skipped
+documents,DQ-06,Positive Sales Validation,WARNING,PASS,No sales column found – skipped
+documents,DQ-07,Year Validation,WARNING,PASS,year: all years in range
+documents,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+documents,DQ-09,URL Validation,WARNING,PASS,No URL column found – skipped
+documents,DQ-10,Year Coverage,INFO,PASS,All companies have ≥3 years of data
+documents,DQ-11,Dividend Validation,WARNING,PASS,No dividend column found – skipped
+documents,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+documents,DQ-13,Market Cap Validation,WARNING,PASS,No market cap column found – skipped
+documents,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+documents,DQ-15,Missing Values,WARNING,PASS,id: no missing values
+documents,DQ-15,Missing Values,WARNING,PASS,company_id: no missing values
+documents,DQ-15,Missing Values,WARNING,PASS,year: no missing values
+documents,DQ-15,Missing Values,WARNING,PASS,annual_report: no missing values
+documents,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows
+pros_cons,DQ-01,Primary Key Uniqueness,CRITICAL,PASS,id: all values unique and non-null
+pros_cons,DQ-02,Company-Year Uniqueness,CRITICAL,FAIL,Missing columns for composite key: {'year'}
+pros_cons,DQ-04,Balance Sheet Validation,WARNING,FAIL,"Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}"
+pros_cons,DQ-05,Operating Profit Margin Validation,WARNING,PASS,No OPM column found – skipped
+pros_cons,DQ-06,Positive Sales Validation,WARNING,PASS,No sales column found – skipped
+pros_cons,DQ-07,Year Validation,WARNING,PASS,No year column found – skipped
+pros_cons,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+pros_cons,DQ-09,URL Validation,WARNING,PASS,No URL column found – skipped
+pros_cons,DQ-10,Year Coverage,INFO,PASS,Missing company_id/year – skipped
+pros_cons,DQ-11,Dividend Validation,WARNING,PASS,No dividend column found – skipped
+pros_cons,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+pros_cons,DQ-13,Market Cap Validation,WARNING,PASS,No market cap column found – skipped
+pros_cons,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+pros_cons,DQ-15,Missing Values,WARNING,PASS,id: no missing values
+pros_cons,DQ-15,Missing Values,WARNING,PASS,company_id: no missing values
+pros_cons,DQ-15,Missing Values,WARNING,PASS,pros: no missing values
+pros_cons,DQ-15,Missing Values,WARNING,PASS,cons: no missing values
+pros_cons,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows
+financial_ratios,DQ-01,Primary Key Uniqueness,CRITICAL,PASS,id: all values unique and non-null
+financial_ratios,DQ-02,Company-Year Uniqueness,CRITICAL,FAIL,"1092 duplicate (company_id, year) combinations"
+financial_ratios,DQ-04,Balance Sheet Validation,WARNING,FAIL,"Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}"
+financial_ratios,DQ-05,Operating Profit Margin Validation,WARNING,FAIL,"operating_profit_margin_pct: 1107 values outside [-100%, 100%]"
+financial_ratios,DQ-06,Positive Sales Validation,WARNING,PASS,No sales column found – skipped
+financial_ratios,DQ-07,Year Validation,WARNING,PASS,year: all years in range
+financial_ratios,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+financial_ratios,DQ-09,URL Validation,WARNING,PASS,No URL column found – skipped
+financial_ratios,DQ-10,Year Coverage,INFO,FAIL,92 companies have <3 years of data
+financial_ratios,DQ-11,Dividend Validation,WARNING,FAIL,"dividend_payout_ratio_pct: 1050 values outside [0%, 50%]"
+financial_ratios,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+financial_ratios,DQ-13,Market Cap Validation,WARNING,PASS,No market cap column found – skipped
+financial_ratios,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+financial_ratios,DQ-15,Missing Values,WARNING,PASS,id: no missing values
+financial_ratios,DQ-15,Missing Values,WARNING,PASS,company_id: no missing values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,year: 1184 missing values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,net_profit_margin_pct: 1 missing values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,operating_profit_margin_pct: 61 missing values
+financial_ratios,DQ-15,Missing Values,WARNING,PASS,return_on_equity_pct: no missing values
+financial_ratios,DQ-15,Missing Values,WARNING,PASS,debt_to_equity: no missing values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,interest_coverage: 93 missing values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,asset_turnover: 1 missing values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,free_cash_flow_cr: 2 missing values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,capex_cr: 2 missing values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,earnings_per_share: 4 missing values
+financial_ratios,DQ-15,Missing Values,WARNING,PASS,book_value_per_share: no missing values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,dividend_payout_ratio_pct: 4 missing values
+financial_ratios,DQ-15,Missing Values,WARNING,PASS,total_debt_cr: no missing values
+financial_ratios,DQ-15,Missing Values,WARNING,FAIL,cash_from_operations_cr: 2 missing values
+financial_ratios,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows
+stock_prices,DQ-01,Primary Key Uniqueness,CRITICAL,PASS,id: all values unique and non-null
+stock_prices,DQ-02,Company-Year Uniqueness,CRITICAL,FAIL,Missing columns for composite key: {'year'}
+stock_prices,DQ-04,Balance Sheet Validation,WARNING,FAIL,"Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}"
+stock_prices,DQ-05,Operating Profit Margin Validation,WARNING,PASS,No OPM column found – skipped
+stock_prices,DQ-06,Positive Sales Validation,WARNING,PASS,No sales column found – skipped
+stock_prices,DQ-07,Year Validation,WARNING,PASS,No year column found – skipped
+stock_prices,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+stock_prices,DQ-09,URL Validation,WARNING,PASS,No URL column found – skipped
+stock_prices,DQ-10,Year Coverage,INFO,PASS,Missing company_id/year – skipped
+stock_prices,DQ-11,Dividend Validation,WARNING,PASS,No dividend column found – skipped
+stock_prices,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+stock_prices,DQ-13,Market Cap Validation,WARNING,PASS,No market cap column found – skipped
+stock_prices,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+stock_prices,DQ-15,Missing Values,WARNING,PASS,id: no missing values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,company_id: no missing values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,date: no missing values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,open_price: no missing values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,high_price: no missing values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,low_price: no missing values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,close_price: no missing values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,volume: no missing values
+stock_prices,DQ-15,Missing Values,WARNING,PASS,adjusted_close: no missing values
+stock_prices,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows
+market_cap,DQ-01,Primary Key Uniqueness,CRITICAL,PASS,id: all values unique and non-null
+market_cap,DQ-02,Company-Year Uniqueness,CRITICAL,PASS,"No duplicate (company_id, year) pairs"
+market_cap,DQ-04,Balance Sheet Validation,WARNING,FAIL,"Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}"
+market_cap,DQ-05,Operating Profit Margin Validation,WARNING,PASS,No OPM column found – skipped
+market_cap,DQ-06,Positive Sales Validation,WARNING,PASS,No sales column found – skipped
+market_cap,DQ-07,Year Validation,WARNING,PASS,year: all years in range
+market_cap,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+market_cap,DQ-09,URL Validation,WARNING,PASS,No URL column found – skipped
+market_cap,DQ-10,Year Coverage,INFO,PASS,All companies have ≥3 years of data
+market_cap,DQ-11,Dividend Validation,WARNING,FAIL,"dividend_yield_pct: 483 values outside [0%, 50%]"
+market_cap,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+market_cap,DQ-13,Market Cap Validation,WARNING,PASS,market_cap_crore: all market cap values positive
+market_cap,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+market_cap,DQ-15,Missing Values,WARNING,PASS,id: no missing values
+market_cap,DQ-15,Missing Values,WARNING,PASS,company_id: no missing values
+market_cap,DQ-15,Missing Values,WARNING,PASS,year: no missing values
+market_cap,DQ-15,Missing Values,WARNING,PASS,market_cap_crore: no missing values
+market_cap,DQ-15,Missing Values,WARNING,PASS,enterprise_value_crore: no missing values
+market_cap,DQ-15,Missing Values,WARNING,PASS,pe_ratio: no missing values
+market_cap,DQ-15,Missing Values,WARNING,PASS,pb_ratio: no missing values
+market_cap,DQ-15,Missing Values,WARNING,PASS,ev_ebitda: no missing values
+market_cap,DQ-15,Missing Values,WARNING,PASS,dividend_yield_pct: no missing values
+market_cap,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows
+peer_groups,DQ-01,Primary Key Uniqueness,CRITICAL,PASS,id: all values unique and non-null
+peer_groups,DQ-02,Company-Year Uniqueness,CRITICAL,FAIL,Missing columns for composite key: {'year'}
+peer_groups,DQ-04,Balance Sheet Validation,WARNING,FAIL,"Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}"
+peer_groups,DQ-05,Operating Profit Margin Validation,WARNING,PASS,No OPM column found – skipped
+peer_groups,DQ-06,Positive Sales Validation,WARNING,PASS,No sales column found – skipped
+peer_groups,DQ-07,Year Validation,WARNING,PASS,No year column found – skipped
+peer_groups,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+peer_groups,DQ-09,URL Validation,WARNING,PASS,No URL column found – skipped
+peer_groups,DQ-10,Year Coverage,INFO,PASS,Missing company_id/year – skipped
+peer_groups,DQ-11,Dividend Validation,WARNING,PASS,No dividend column found – skipped
+peer_groups,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+peer_groups,DQ-13,Market Cap Validation,WARNING,PASS,No market cap column found – skipped
+peer_groups,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+peer_groups,DQ-15,Missing Values,WARNING,PASS,id: no missing values
+peer_groups,DQ-15,Missing Values,WARNING,PASS,peer_group_name: no missing values
+peer_groups,DQ-15,Missing Values,WARNING,PASS,company_id: no missing values
+peer_groups,DQ-15,Missing Values,WARNING,PASS,is_benchmark: no missing values
+peer_groups,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows
+sectors,DQ-01,Primary Key Uniqueness,CRITICAL,PASS,id: all values unique and non-null
+sectors,DQ-02,Company-Year Uniqueness,CRITICAL,FAIL,Missing columns for composite key: {'year'}
+sectors,DQ-04,Balance Sheet Validation,WARNING,FAIL,"Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}"
+sectors,DQ-05,Operating Profit Margin Validation,WARNING,PASS,No OPM column found – skipped
+sectors,DQ-06,Positive Sales Validation,WARNING,PASS,No sales column found – skipped
+sectors,DQ-07,Year Validation,WARNING,PASS,No year column found – skipped
+sectors,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+sectors,DQ-09,URL Validation,WARNING,PASS,No URL column found – skipped
+sectors,DQ-10,Year Coverage,INFO,PASS,Missing company_id/year – skipped
+sectors,DQ-11,Dividend Validation,WARNING,PASS,No dividend column found – skipped
+sectors,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+sectors,DQ-13,Market Cap Validation,WARNING,PASS,market_cap_category: all market cap values positive
+sectors,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+sectors,DQ-15,Missing Values,WARNING,PASS,id: no missing values
+sectors,DQ-15,Missing Values,WARNING,PASS,company_id: no missing values
+sectors,DQ-15,Missing Values,WARNING,PASS,broad_sector: no missing values
+sectors,DQ-15,Missing Values,WARNING,PASS,sub_sector: no missing values
+sectors,DQ-15,Missing Values,WARNING,PASS,index_weight_pct: no missing values
+sectors,DQ-15,Missing Values,WARNING,PASS,market_cap_category: no missing values
+sectors,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows

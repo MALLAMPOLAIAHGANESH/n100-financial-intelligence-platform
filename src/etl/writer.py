@@ -1,6 +1,6 @@
 import pandas as pd
-from src.database.db import engine
-from src.etl.logger import logger
+from database.db import engine
+from etl.logger import logger
 
 class DatabaseWriter:
     @staticmethod

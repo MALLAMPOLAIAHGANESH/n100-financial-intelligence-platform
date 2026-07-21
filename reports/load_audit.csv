@@ -1,13 +1,13 @@
 Dataset,Table,Rows Read,Rows Loaded,Rows Rejected,Status,Load Time (sec)
-companies.xlsx,companies,92,92,0,SUCCESS,0.52
-profitandloss.xlsx,profit_loss,1276,1276,0,SUCCESS,0.57
-balancesheet.xlsx,balance_sheet,0,0,0,FAILED,0.16
-cashflow.xlsx,cash_flow,1187,1187,0,SUCCESS,0.27
-analysis.xlsx,analysis,20,20,0,SUCCESS,0.03
-documents.xlsx,documents,1585,1585,0,SUCCESS,0.2
+companies.xlsx,companies,92,92,0,SUCCESS,0.3
+profitandloss.xlsx,profit_loss,1276,1276,0,SUCCESS,0.49
+balancesheet.xlsx,balance_sheet,1312,1312,0,SUCCESS,0.36
+cashflow.xlsx,cash_flow,1187,1187,0,SUCCESS,0.25
+analysis.xlsx,analysis,20,20,0,SUCCESS,0.04
+documents.xlsx,documents,1585,1585,0,SUCCESS,0.16
 prosandcons.xlsx,pros_cons,16,16,0,SUCCESS,0.03
-financial_ratios.xlsx,financial_ratios,1184,1184,0,SUCCESS,0.46
-stock_prices.xlsx,stock_prices,5520,5520,0,SUCCESS,1.04
-market_cap.xlsx,market_cap,552,552,0,SUCCESS,0.12
-peer_groups.xlsx,peer_groups,56,56,0,SUCCESS,0.03
-sectors.xlsx,sectors,92,92,0,SUCCESS,0.04
+financial_ratios.xlsx,financial_ratios,1184,1184,0,SUCCESS,0.51
+stock_prices.xlsx,stock_prices,5520,5520,0,SUCCESS,1.15
+market_cap.xlsx,market_cap,552,552,0,SUCCESS,0.19
+peer_groups.xlsx,peer_groups,56,56,0,SUCCESS,0.04
+sectors.xlsx,sectors,92,92,0,SUCCESS,0.05

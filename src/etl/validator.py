@@ -1,6 +1,6 @@
 import re
 import pandas as pd
-from src.etl.dq_engine import DataQualityEngine
+from etl.dq_engine import DataQualityEngine
 
 class DataValidator:
 

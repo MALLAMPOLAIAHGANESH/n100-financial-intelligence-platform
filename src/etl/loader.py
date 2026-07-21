@@ -8,19 +8,18 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.config.datasets import DATASETS
-# Optionally import specific mappings if needed (since they matched, mapping is optional or identity)
-from src.config.column_mapping import COMPANIES_MAPPING
-from src.etl.reader import ExcelReader
-from src.etl.validator import DataValidator
-from src.etl.normalizer import DataNormalizer
-from src.etl.transformer import DataTransformer
-from src.etl.mapper import ColumnMapper
-from src.etl.dq_engine import DataQualityEngine
-from src.etl.writer import DatabaseWriter
-from src.etl.load_audit import LoadAudit
-from src.etl.logger import logger
-from src.database.db import engine
+from config.datasets import DATASETS
+from config.column_mapping import COMPANIES_MAPPING
+from etl.reader import ExcelReader
+from etl.validator import DataValidator
+from etl.normalizer import DataNormalizer
+from etl.transformer import DataTransformer
+from etl.mapper import ColumnMapper
+from etl.dq_engine import DataQualityEngine
+from etl.writer import DatabaseWriter
+from etl.load_audit import LoadAudit
+from etl.logger import logger
+from database.db import engine
 
 RAW_DATA = PROJECT_ROOT / "data" / "raw"
 SUPPORTING_DATA = PROJECT_ROOT / "data" / "supporting"

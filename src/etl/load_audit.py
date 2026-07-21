@@ -83,8 +83,8 @@ class LoadAudit:
         # Load existing CSV if it exists, otherwise create new DataFrame
         csv_file = reports_path / "load_audit.csv"
         try:
-            df = pd.read_csv(csv_file)
-            df = df.append(record, ignore_index=True)
+            existing = pd.read_csv(csv_file)
+            df = pd.concat([existing, pd.DataFrame([record])], ignore_index=True)
         except FileNotFoundError:
             df = pd.DataFrame([record])
         df.to_csv(csv_file, index=False)

@@ -19,17 +19,16 @@ class DataNormalizer:
     @staticmethod
     def normalize_year(df: pd.DataFrame) -> pd.DataFrame:
         """
-        Convert year columns to integer.
+        Convert year columns to nullable integer (Int64).
+        Falls back to float if Int64 cast fails (Python 3.14 compat).
         """
-        year_columns = [
-            col for col in df.columns
-            if "year" in col.lower()
-        ]
-
+        year_columns = [col for col in df.columns if "year" in col.lower()]
         for col in year_columns:
-            df[col] = pd.to_numeric(df[col], errors="coerce")
-            df[col] = df[col].astype("Int64")
-
+            numeric = pd.to_numeric(df[col], errors="coerce")
+            try:
+                df[col] = numeric.astype("Int64")
+            except (TypeError, ValueError):
+                df[col] = numeric  # keep as float64 if Int64 fails
         return df
 
     @staticmethod

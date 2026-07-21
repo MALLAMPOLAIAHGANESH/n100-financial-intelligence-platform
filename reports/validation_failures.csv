@@ -1,14 +1,17 @@
 Dataset,Column,Rule,Value,Severity
+companies,website,Invalid URL,,WARNING
 companies,face_value,Missing Values,NULL,WARNING
 companies,book_value,Missing Values,NULL,WARNING
 companies,roce_percentage,Missing Values,NULL,WARNING
 companies,roe_percentage,Missing Values,NULL,WARNING
+profit_loss,sales,Non-positive Sales,0,WARNING
 profit_loss,year,Missing Values,NULL,WARNING
 profit_loss,operating_profit,Missing Values,NULL,WARNING
 profit_loss,opm_percentage,Missing Values,NULL,WARNING
 profit_loss,tax_percentage,Missing Values,NULL,WARNING
 profit_loss,eps,Missing Values,NULL,WARNING
 profit_loss,dividend_payout,Missing Values,NULL,WARNING
+balance_sheet,year,Missing Values,NULL,WARNING
 cash_flow,year,Missing Values,NULL,WARNING
 cash_flow,operating_activity,Missing Values,NULL,WARNING
 cash_flow,investing_activity,Missing Values,NULL,WARNING
