@@ -1,0 +1,27 @@
+Dataset,Rule ID,Rule,Severity,Status,Details
+companies,DQ-01,Primary Key Uniqueness,CRITICAL,FAIL,No primary key column found
+companies,DQ-02,Company-Year Uniqueness,CRITICAL,FAIL,"Missing columns for composite key: {'year', 'company_id'}"
+companies,DQ-04,Balance Sheet Validation,WARNING,FAIL,"Missing columns: {'total_liabilities', 'total_equity', 'total_assets'}"
+companies,DQ-05,Operating Profit Margin Validation,WARNING,PASS,No OPM column found – skipped
+companies,DQ-06,Positive Sales Validation,WARNING,PASS,No sales column found – skipped
+companies,DQ-07,Year Validation,WARNING,PASS,No year column found – skipped
+companies,DQ-08,Cash Flow Validation,WARNING,PASS,Insufficient columns for cash flow validation – skipped
+companies,DQ-09,URL Validation,WARNING,PASS,No URL column found – skipped
+companies,DQ-10,Year Coverage,INFO,PASS,Missing company_id/year – skipped
+companies,DQ-11,Dividend Validation,WARNING,PASS,No dividend column found – skipped
+companies,DQ-12,Tax Rate Validation,WARNING,PASS,No tax rate column found – skipped
+companies,DQ-13,Market Cap Validation,WARNING,PASS,No market cap column found – skipped
+companies,DQ-14,Ticker Validation,WARNING,PASS,No ticker column found – skipped
+companies,DQ-15,Missing Values,WARNING,PASS,Mkt Fintech — Nifty 100  |  Companies  |  92 records: no missing values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 1: 1 missing values
+companies,DQ-15,Missing Values,WARNING,PASS,Unnamed: 2: no missing values
+companies,DQ-15,Missing Values,WARNING,PASS,Unnamed: 3: no missing values
+companies,DQ-15,Missing Values,WARNING,PASS,Unnamed: 4: no missing values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 5: 1 missing values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 6: 1 missing values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 7: 1 missing values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 8: 1 missing values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 9: 1 missing values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 10: 1 missing values
+companies,DQ-15,Missing Values,WARNING,FAIL,Unnamed: 11: 2 missing values
+companies,DQ-16,Duplicate Records,WARNING,PASS,No duplicate rows

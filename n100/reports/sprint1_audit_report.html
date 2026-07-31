@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>N100 Financial Intelligence Platform – Sprint 1 Audit Report</title>
+  
+<style>
+  :root{--bg:#0f172a;--card:#1e293b;--border:#334155;--text:#e2e8f0;--muted:#94a3b8;--accent:#6366f1;--green:#22c55e;--red:#ef4444;--yellow:#f59e0b}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:14px;line-height:1.6}
+  header{background:linear-gradient(135deg,#1e1b4b,#312e81);padding:2rem 3rem;border-bottom:1px solid var(--border)}
+  header h1{font-size:1.8rem;font-weight:700;color:#fff;letter-spacing:-.5px}
+  header p{color:#a5b4fc;margin-top:.3rem}
+  .badge{display:inline-block;padding:.2rem .7rem;border-radius:999px;font-size:.75rem;font-weight:600;background:#312e81;color:#a5b4fc;margin-left:.5rem}
+  nav{display:flex;gap:.5rem;padding:1rem 3rem;background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+  nav a{color:var(--muted);text-decoration:none;padding:.4rem .9rem;border-radius:6px;transition:.2s}
+  nav a:hover{background:var(--border);color:var(--text)}
+  main{padding:2rem 3rem;max-width:1400px;margin:auto}
+  section{margin-bottom:3rem}
+  h2{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+  h3{font-size:1rem;color:var(--muted);margin:.5rem 0}
+  .summary-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
+  .stat-card{background:var(--card);border:1px solid var(--border);border-top:4px solid var(--accent);border-radius:10px;padding:1rem 1.5rem;min-width:140px}
+  .stat-card.pass{border-top-color:var(--green)}
+  .stat-card.fail{border-top-color:var(--red)}
+  .stat-num{font-size:1.8rem;font-weight:700;color:#fff}
+  .stat-lbl{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+  .kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem}
+  .kpi-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem;border-left:4px solid var(--accent)}
+  .kpi-label{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem}
+  .kpi-value{font-size:1.6rem;font-weight:700;color:#fff}
+  .kpi-sub{color:var(--muted);font-size:.75rem;margin-top:.3rem}
+  .table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px}
+  table.data-table{width:100%;border-collapse:collapse;font-size:.82rem}
+  table.data-table th{background:#1e293b;color:var(--muted);padding:.6rem 1rem;text-align:left;border-bottom:1px solid var(--border);position:sticky;top:0}
+  table.data-table td{padding:.5rem 1rem;border-bottom:1px solid #1e293b;color:var(--text)}
+  table.data-table tr:hover td{background:#1e293b}
+  .pass-cell{color:var(--green);font-weight:600}
+  .fail-cell{color:var(--red);font-weight:600}
+  footer{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid var(--border);font-size:.8rem}
+</style>
+
+</head>
+<body>
+<header>
+  <h1>N100 Financial Intelligence Platform <span class="badge">Sprint 1</span></h1>
+  <p>Audit Report &nbsp;·&nbsp; Generated: 2026-07-21 07:42:18</p>
+</header>
+<nav>
+  <a href="#etl">ETL Audit</a>
+  <a href="#dq">Data Quality</a>
+  <a href="#kpi">KPI Summary</a>
+  <a href="#failures">DQ Failures</a>
+</nav>
+<main>
+
+<!-- ── ETL AUDIT ──────────────────────────────────────────────── -->
+<section id="etl">
+  <h2>📥 ETL Load Audit</h2>
+  
+    <div class="summary-row">
+      <div class="stat-card"><div class="stat-num">12</div><div class="stat-lbl">Datasets</div></div>
+      <div class="stat-card pass"><div class="stat-num">12</div><div class="stat-lbl">Succeeded</div></div>
+      <div class="stat-card fail"><div class="stat-num">0</div><div class="stat-lbl">Failed</div></div>
+      <div class="stat-card"><div class="stat-num">12,892</div><div class="stat-lbl">Total Rows Loaded</div></div>
+    </div>
+  <div class="table-wrap">
+    <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Dataset</th>
+      <th>Table</th>
+      <th>Rows Read</th>
+      <th>Rows Loaded</th>
+      <th>Rows Rejected</th>
+      <th>Status</th>
+      <th>Load Time (sec)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>companies.xlsx</td>
+      <td>companies</td>
+      <td>92</td>
+      <td>92</td>
+      <td>0</td>
+      <td class="pass-cell">SUCCESS</td>
+      <td>0.30</td>
+    </tr>
+    <tr>
+      <td>profitandloss.xlsx</td>
+      <td>profit_loss</td>
+      <td>1276</td>
+      <td>1276</td>
+      <td>0</td>
+      <td class="pass-cell">SUCCESS</td>
+      <td>0.49</td>
+    </tr>
+    <tr>
+      <td>balancesheet.xlsx</td>
+      <td>balance_sheet</td>
+      <td>1312</td>
+      <td>1312</td>
+      <td>0</td>
+      <td class="pass-cell">SUCCESS</td>
+      <td>0.36</td>
+    </tr>
+    <tr>
+      <td>cashflow.xlsx</td>
+      <td>cash_flow</td>
+      <td>1187</td>
+      <td>1187</td>
+      <td>0</td>
+      <td class="pass-cell">SUCCESS</td>
+      <td>0.25</td>
+    </tr>
+    <tr>
+      <td>analysis.xlsx</td>
+      <td>analysis</td>
+      <td>20</td>
+      <td>20</td>
+      <td>0</td>
+      <td class="pass-cell">SUCCESS</td>
+      <td>0.04</td>
+    </tr>
+    <tr>
+      <td>documents.xlsx</td>
+      <td>documents</td>
+      <td>1585</td>
+      <td>1585</td>
+      <td>0</td>
+      <td class="pass-cell">SUCCESS</td>
+      <td>0.16</td>
+    </tr>
+    <tr>
+      <td>prosandcons.xlsx</td>
+      <td>pros_cons</td>
+      <td>16</td>
+      <td>16</td>
+      <td>0</td>
+      <td class="pass-cell">SUCCESS</td>
+      <td>0.03</td>
+    </tr>
+    <tr>
+      <td>financial_ratios.xlsx</td>
+      <td>financial_ratios</td>
+      <td>1184</td>
+      <td>1184</td>
+      <td>0</td>
+      <td class="pass-cell">SUCCESS</td>
+      <td>0.51</td>
+    </tr>
+    <tr>
+      <td>stock_prices.xlsx</td>
+      <td>stock_prices</td>
+      <td>5520</td>
+      <td>5520</td>
+      <td>0</td>
+      <td class="pass-cell">SUCCESS</td>
+      <td>1.15</td>
+    </tr>
+    <tr>
+      <td>market_cap.xlsx</td>
+      <td>market_cap</td>
+      <td>552</td>
+      <td>552</td>
+      <td>0</td>
+      <td class="pass-cell">SUCCESS</td>
+      <td>0.19</td>
+    </tr>
+    <tr>
+      <td>peer_groups.xlsx</td>
+      <td>peer_groups</td>
+      <td>56</td>
+      <td>56</td>
+      <td>0</td>
+      <td class="pass-cell">SUCCESS</td>
+      <td>0.04</td>
+    </tr>
+    <tr>
+      <td>sectors.xlsx</td>
+      <td>sectors</td>
+      <td>92</td>
+      <td>92</td>
+      <td>0</td>
+      <td class="pass-cell">SUCCESS</td>
+      <td>0.05</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</section>
+
+<!-- ── DQ SUMMARY ────────────────────────────────────────────── -->
+<section id="dq">
+  <h2>🔍 Data Quality – Rule Results</h2>
+  
+    <div class="summary-row">
+      <div class="stat-card"><div class="stat-num">273</div><div class="stat-lbl">Total Checks</div></div>
+      <div class="stat-card pass"><div class="stat-num">212</div><div class="stat-lbl">Passed</div></div>
+      <div class="stat-card fail"><div class="stat-num">61</div><div class="stat-lbl">Failed</div></div>
+      <div class="stat-card" style="border-top:4px solid #f59e0b">
+        <div class="stat-num" style="color:#f59e0b">77.7%</div>
+        <div class="stat-lbl">Pass Rate</div>
+      </div>
+    </div>
+  <h3>By Rule</h3>
+  <div class="table-wrap">
+    <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Rule ID</th>
+      <th>Rule</th>
+      <th>Severity</th>
+      <th>Status</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DQ-01</td>
+      <td>Primary Key Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="fail-cell">FAIL</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>DQ-01</td>
+      <td>Primary Key Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="pass-cell">PASS</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>DQ-02</td>
+      <td>Company-Year Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="fail-cell">FAIL</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>DQ-02</td>
+      <td>Company-Year Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="pass-cell">PASS</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>DQ-04</td>
+      <td>Balance Sheet Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>DQ-05</td>
+      <td>Operating Profit Margin Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>DQ-05</td>
+      <td>Operating Profit Margin Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>DQ-06</td>
+      <td>Positive Sales Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>DQ-06</td>
+      <td>Positive Sales Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>DQ-07</td>
+      <td>Year Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>DQ-08</td>
+      <td>Cash Flow Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>DQ-09</td>
+      <td>URL Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>DQ-09</td>
+      <td>URL Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>DQ-10</td>
+      <td>Year Coverage</td>
+      <td>INFO</td>
+      <td class="fail-cell">FAIL</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>DQ-10</td>
+      <td>Year Coverage</td>
+      <td>INFO</td>
+      <td class="pass-cell">PASS</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>DQ-11</td>
+      <td>Dividend Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>DQ-11</td>
+      <td>Dividend Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>DQ-12</td>
+      <td>Tax Rate Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>DQ-13</td>
+      <td>Market Cap Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>DQ-14</td>
+      <td>Ticker Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <td>DQ-16</td>
+      <td>Duplicate Records</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <br>
+  <h3>Full DQ Report (first 200 rows)</h3>
+  <div class="table-wrap">
+    <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Dataset</th>
+      <th>Rule ID</th>
+      <th>Rule</th>
+      <th>Severity</th>
+      <th>Status</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>companies</td>
+      <td>DQ-01</td>
+      <td>Primary Key Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="fail-cell">FAIL</td>
+      <td>No primary key column found</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-02</td>
+      <td>Company-Year Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns for composite key: {'year'}</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-04</td>
+      <td>Balance Sheet Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-05</td>
+      <td>Operating Profit Margin Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No OPM column found – skipped</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-06</td>
+      <td>Positive Sales Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No sales column found – skipped</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-07</td>
+      <td>Year Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No year column found – skipped</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-08</td>
+      <td>Cash Flow Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>Insufficient columns for cash flow validation – skipped</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-09</td>
+      <td>URL Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>website: 1 invalid URLs</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-10</td>
+      <td>Year Coverage</td>
+      <td>INFO</td>
+      <td class="pass-cell">PASS</td>
+      <td>Missing company_id/year – skipped</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-11</td>
+      <td>Dividend Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No dividend column found – skipped</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-12</td>
+      <td>Tax Rate Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No tax rate column found – skipped</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-13</td>
+      <td>Market Cap Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No market cap column found – skipped</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-14</td>
+      <td>Ticker Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No ticker column found – skipped</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>company_id: no missing values</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>company_logo: no missing values</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>company_name: no missing values</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>chart_link: no missing values</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>about_company: no missing values</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>website: no missing values</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>nse_profile: no missing values</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>bse_profile: no missing values</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>face_value: 1 missing values</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>book_value: 1 missing values</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>roce_percentage: 1 missing values</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>roe_percentage: 2 missing values</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>DQ-16</td>
+      <td>Duplicate Records</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No duplicate rows</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-01</td>
+      <td>Primary Key Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: all values unique and non-null</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-02</td>
+      <td>Company-Year Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="fail-cell">FAIL</td>
+      <td>1176 duplicate (company_id, year) combinations</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-04</td>
+      <td>Balance Sheet Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-05</td>
+      <td>Operating Profit Margin Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>opm_percentage: 1243 values outside [-100%, 100%]</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-06</td>
+      <td>Positive Sales Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>sales: 1 non-positive values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-07</td>
+      <td>Year Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>year: all years in range</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-08</td>
+      <td>Cash Flow Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>Insufficient columns for cash flow validation – skipped</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-09</td>
+      <td>URL Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No URL column found – skipped</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-10</td>
+      <td>Year Coverage</td>
+      <td>INFO</td>
+      <td class="fail-cell">FAIL</td>
+      <td>100 companies have &lt;3 years of data</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-11</td>
+      <td>Dividend Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>dividend_payout: 1032 values outside [0%, 50%]</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-12</td>
+      <td>Tax Rate Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No tax rate column found – skipped</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-13</td>
+      <td>Market Cap Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No market cap column found – skipped</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-14</td>
+      <td>Ticker Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No ticker column found – skipped</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: no missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>company_id: no missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>year: 1276 missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>sales: no missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>expenses: no missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>operating_profit: 13 missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>opm_percentage: 15 missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>other_income: no missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>interest: no missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>depreciation: no missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>profit_before_tax: no missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>tax_percentage: 95 missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>net_profit: no missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>eps: 5 missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>dividend_payout: 103 missing values</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>DQ-16</td>
+      <td>Duplicate Records</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No duplicate rows</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-01</td>
+      <td>Primary Key Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: all values unique and non-null</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-02</td>
+      <td>Company-Year Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="fail-cell">FAIL</td>
+      <td>1159 duplicate (company_id, year) combinations</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-04</td>
+      <td>Balance Sheet Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns: {'total_equity'}</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-05</td>
+      <td>Operating Profit Margin Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No OPM column found – skipped</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-06</td>
+      <td>Positive Sales Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No sales column found – skipped</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-07</td>
+      <td>Year Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>year: all years in range</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-08</td>
+      <td>Cash Flow Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>Insufficient columns for cash flow validation – skipped</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-09</td>
+      <td>URL Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No URL column found – skipped</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-10</td>
+      <td>Year Coverage</td>
+      <td>INFO</td>
+      <td class="fail-cell">FAIL</td>
+      <td>93 companies have &lt;3 years of data</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-11</td>
+      <td>Dividend Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No dividend column found – skipped</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-12</td>
+      <td>Tax Rate Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No tax rate column found – skipped</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-13</td>
+      <td>Market Cap Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No market cap column found – skipped</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-14</td>
+      <td>Ticker Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No ticker column found – skipped</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: no missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>company_id: no missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>year: 1252 missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>equity_capital: no missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>reserves: no missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>borrowings: no missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>other_liabilities: no missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>total_liabilities: no missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>fixed_assets: no missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>cwip: no missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>investments: no missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>other_asset: no missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>total_assets: no missing values</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>DQ-16</td>
+      <td>Duplicate Records</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No duplicate rows</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-01</td>
+      <td>Primary Key Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: all values unique and non-null</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-02</td>
+      <td>Company-Year Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="fail-cell">FAIL</td>
+      <td>1087 duplicate (company_id, year) combinations</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-04</td>
+      <td>Balance Sheet Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-05</td>
+      <td>Operating Profit Margin Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No OPM column found – skipped</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-06</td>
+      <td>Positive Sales Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No sales column found – skipped</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-07</td>
+      <td>Year Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>year: all years in range</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-08</td>
+      <td>Cash Flow Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>Insufficient columns for cash flow validation – skipped</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-09</td>
+      <td>URL Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No URL column found – skipped</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-10</td>
+      <td>Year Coverage</td>
+      <td>INFO</td>
+      <td class="fail-cell">FAIL</td>
+      <td>100 companies have &lt;3 years of data</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-11</td>
+      <td>Dividend Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No dividend column found – skipped</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-12</td>
+      <td>Tax Rate Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No tax rate column found – skipped</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-13</td>
+      <td>Market Cap Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No market cap column found – skipped</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-14</td>
+      <td>Ticker Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No ticker column found – skipped</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: no missing values</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>company_id: no missing values</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>year: 1187 missing values</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>operating_activity: 2 missing values</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>investing_activity: 2 missing values</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>financing_activity: 2 missing values</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>net_cash_flow: 2 missing values</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>DQ-16</td>
+      <td>Duplicate Records</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No duplicate rows</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-01</td>
+      <td>Primary Key Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: all values unique and non-null</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-02</td>
+      <td>Company-Year Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns for composite key: {'year'}</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-04</td>
+      <td>Balance Sheet Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-05</td>
+      <td>Operating Profit Margin Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No OPM column found – skipped</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-06</td>
+      <td>Positive Sales Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No sales column found – skipped</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-07</td>
+      <td>Year Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No year column found – skipped</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-08</td>
+      <td>Cash Flow Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>Insufficient columns for cash flow validation – skipped</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-09</td>
+      <td>URL Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No URL column found – skipped</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-10</td>
+      <td>Year Coverage</td>
+      <td>INFO</td>
+      <td class="pass-cell">PASS</td>
+      <td>Missing company_id/year – skipped</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-11</td>
+      <td>Dividend Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No dividend column found – skipped</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-12</td>
+      <td>Tax Rate Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No tax rate column found – skipped</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-13</td>
+      <td>Market Cap Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No market cap column found – skipped</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-14</td>
+      <td>Ticker Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No ticker column found – skipped</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: no missing values</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>company_id: no missing values</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>compounded_sales_growth: no missing values</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>compounded_profit_growth: no missing values</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>stock_price_cagr: no missing values</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>roe: no missing values</td>
+    </tr>
+    <tr>
+      <td>analysis</td>
+      <td>DQ-16</td>
+      <td>Duplicate Records</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No duplicate rows</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-01</td>
+      <td>Primary Key Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: all values unique and non-null</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-02</td>
+      <td>Company-Year Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="fail-cell">FAIL</td>
+      <td>1 duplicate (company_id, year) combinations</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-04</td>
+      <td>Balance Sheet Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-05</td>
+      <td>Operating Profit Margin Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No OPM column found – skipped</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-06</td>
+      <td>Positive Sales Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No sales column found – skipped</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-07</td>
+      <td>Year Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>year: all years in range</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-08</td>
+      <td>Cash Flow Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>Insufficient columns for cash flow validation – skipped</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-09</td>
+      <td>URL Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No URL column found – skipped</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-10</td>
+      <td>Year Coverage</td>
+      <td>INFO</td>
+      <td class="pass-cell">PASS</td>
+      <td>All companies have ≥3 years of data</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-11</td>
+      <td>Dividend Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No dividend column found – skipped</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-12</td>
+      <td>Tax Rate Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No tax rate column found – skipped</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-13</td>
+      <td>Market Cap Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No market cap column found – skipped</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-14</td>
+      <td>Ticker Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No ticker column found – skipped</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: no missing values</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>company_id: no missing values</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>year: no missing values</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>annual_report: no missing values</td>
+    </tr>
+    <tr>
+      <td>documents</td>
+      <td>DQ-16</td>
+      <td>Duplicate Records</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No duplicate rows</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-01</td>
+      <td>Primary Key Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: all values unique and non-null</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-02</td>
+      <td>Company-Year Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns for composite key: {'year'}</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-04</td>
+      <td>Balance Sheet Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-05</td>
+      <td>Operating Profit Margin Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No OPM column found – skipped</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-06</td>
+      <td>Positive Sales Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No sales column found – skipped</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-07</td>
+      <td>Year Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No year column found – skipped</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-08</td>
+      <td>Cash Flow Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>Insufficient columns for cash flow validation – skipped</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-09</td>
+      <td>URL Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No URL column found – skipped</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-10</td>
+      <td>Year Coverage</td>
+      <td>INFO</td>
+      <td class="pass-cell">PASS</td>
+      <td>Missing company_id/year – skipped</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-11</td>
+      <td>Dividend Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No dividend column found – skipped</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-12</td>
+      <td>Tax Rate Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No tax rate column found – skipped</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-13</td>
+      <td>Market Cap Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No market cap column found – skipped</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-14</td>
+      <td>Ticker Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No ticker column found – skipped</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: no missing values</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>company_id: no missing values</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>pros: no missing values</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>cons: no missing values</td>
+    </tr>
+    <tr>
+      <td>pros_cons</td>
+      <td>DQ-16</td>
+      <td>Duplicate Records</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No duplicate rows</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-01</td>
+      <td>Primary Key Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: all values unique and non-null</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-02</td>
+      <td>Company-Year Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="fail-cell">FAIL</td>
+      <td>1092 duplicate (company_id, year) combinations</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-04</td>
+      <td>Balance Sheet Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-05</td>
+      <td>Operating Profit Margin Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>operating_profit_margin_pct: 1107 values outside [-100%, 100%]</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-06</td>
+      <td>Positive Sales Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No sales column found – skipped</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-07</td>
+      <td>Year Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>year: all years in range</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-08</td>
+      <td>Cash Flow Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>Insufficient columns for cash flow validation – skipped</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-09</td>
+      <td>URL Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No URL column found – skipped</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-10</td>
+      <td>Year Coverage</td>
+      <td>INFO</td>
+      <td class="fail-cell">FAIL</td>
+      <td>92 companies have &lt;3 years of data</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-11</td>
+      <td>Dividend Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>dividend_payout_ratio_pct: 1050 values outside [0%, 50%]</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-12</td>
+      <td>Tax Rate Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No tax rate column found – skipped</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-13</td>
+      <td>Market Cap Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No market cap column found – skipped</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-14</td>
+      <td>Ticker Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No ticker column found – skipped</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: no missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>company_id: no missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>year: 1184 missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>net_profit_margin_pct: 1 missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>operating_profit_margin_pct: 61 missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>return_on_equity_pct: no missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>debt_to_equity: no missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>interest_coverage: 93 missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>asset_turnover: 1 missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>free_cash_flow_cr: 2 missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>capex_cr: 2 missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>earnings_per_share: 4 missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>book_value_per_share: no missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>dividend_payout_ratio_pct: 4 missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>total_debt_cr: no missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-15</td>
+      <td>Missing Values</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>cash_from_operations_cr: 2 missing values</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>DQ-16</td>
+      <td>Duplicate Records</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No duplicate rows</td>
+    </tr>
+    <tr>
+      <td>stock_prices</td>
+      <td>DQ-01</td>
+      <td>Primary Key Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="pass-cell">PASS</td>
+      <td>id: all values unique and non-null</td>
+    </tr>
+    <tr>
+      <td>stock_prices</td>
+      <td>DQ-02</td>
+      <td>Company-Year Uniqueness</td>
+      <td>CRITICAL</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns for composite key: {'year'}</td>
+    </tr>
+    <tr>
+      <td>stock_prices</td>
+      <td>DQ-04</td>
+      <td>Balance Sheet Validation</td>
+      <td>WARNING</td>
+      <td class="fail-cell">FAIL</td>
+      <td>Missing columns: {'total_equity', 'total_liabilities', 'total_assets'}</td>
+    </tr>
+    <tr>
+      <td>stock_prices</td>
+      <td>DQ-05</td>
+      <td>Operating Profit Margin Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No OPM column found – skipped</td>
+    </tr>
+    <tr>
+      <td>stock_prices</td>
+      <td>DQ-06</td>
+      <td>Positive Sales Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No sales column found – skipped</td>
+    </tr>
+    <tr>
+      <td>stock_prices</td>
+      <td>DQ-07</td>
+      <td>Year Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No year column found – skipped</td>
+    </tr>
+    <tr>
+      <td>stock_prices</td>
+      <td>DQ-08</td>
+      <td>Cash Flow Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>Insufficient columns for cash flow validation – skipped</td>
+    </tr>
+    <tr>
+      <td>stock_prices</td>
+      <td>DQ-09</td>
+      <td>URL Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No URL column found – skipped</td>
+    </tr>
+    <tr>
+      <td>stock_prices</td>
+      <td>DQ-10</td>
+      <td>Year Coverage</td>
+      <td>INFO</td>
+      <td class="pass-cell">PASS</td>
+      <td>Missing company_id/year – skipped</td>
+    </tr>
+    <tr>
+      <td>stock_prices</td>
+      <td>DQ-11</td>
+      <td>Dividend Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No dividend column found – skipped</td>
+    </tr>
+    <tr>
+      <td>stock_prices</td>
+      <td>DQ-12</td>
+      <td>Tax Rate Validation</td>
+      <td>WARNING</td>
+      <td class="pass-cell">PASS</td>
+      <td>No tax rate column found – skipped</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</section>
+
+<!-- ── KPI SUMMARY ───────────────────────────────────────────── -->
+<section id="kpi">
+  <h2>📊 Financial KPI Summary</h2>
+  <p><em>No KPI data available. Run python run_ratios.py first.</em></p>
+  
+</section>
+
+<!-- ── DQ FAILURES ───────────────────────────────────────────── -->
+<section id="failures">
+  <h2>⚠️ DQ Validation Failures</h2>
+  <div class="table-wrap">
+    <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Dataset</th>
+      <th>Column</th>
+      <th>Rule</th>
+      <th>Value</th>
+      <th>Severity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>companies</td>
+      <td>website</td>
+      <td>Invalid URL</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>face_value</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>book_value</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>roce_percentage</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>companies</td>
+      <td>roe_percentage</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>sales</td>
+      <td>Non-positive Sales</td>
+      <td>0.0</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>year</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>operating_profit</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>opm_percentage</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>tax_percentage</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>eps</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>profit_loss</td>
+      <td>dividend_payout</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>balance_sheet</td>
+      <td>year</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>year</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>operating_activity</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>investing_activity</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>financing_activity</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>cash_flow</td>
+      <td>net_cash_flow</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>year</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>net_profit_margin_pct</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>operating_profit_margin_pct</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>interest_coverage</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>asset_turnover</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>free_cash_flow_cr</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>capex_cr</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>earnings_per_share</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>dividend_payout_ratio_pct</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+    <tr>
+      <td>financial_ratios</td>
+      <td>cash_from_operations_cr</td>
+      <td>Missing Values</td>
+      <td>–</td>
+      <td>WARNING</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</section>
+
+</main>
+<footer>N100 Financial Intelligence Platform &nbsp;·&nbsp; Sprint 1 &nbsp;·&nbsp; 2026-07-21 07:42:18</footer>
+</body>
+</html>

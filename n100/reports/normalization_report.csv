@@ -1,0 +1,13 @@
+Dataset,Rows,Columns,Missing Values,Output
+analysis.xlsx,21,6,0,analysis.csv
+balancesheet.xlsx,1313,13,11,balancesheet.csv
+cashflow.xlsx,1188,7,13,cashflow.csv
+companies.xlsx,93,12,9,companies.csv
+documents.xlsx,1586,4,2,documents.csv
+profitandloss.xlsx,1277,15,244,profitandloss.csv
+prosandcons.xlsx,17,4,1,prosandcons.csv
+financial_ratios.xlsx,1184,16,1354,financial_ratios.csv
+market_cap.xlsx,552,9,0,market_cap.csv
+peer_groups.xlsx,56,4,0,peer_groups.csv
+sectors.xlsx,92,6,0,sectors.csv
+stock_prices.xlsx,5520,9,0,stock_prices.csv

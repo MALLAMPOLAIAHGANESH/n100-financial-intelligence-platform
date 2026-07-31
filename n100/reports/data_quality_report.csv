@@ -1,0 +1,7 @@
+Dataset,Rows,Columns,Missing Values,Duplicate Rows,Memory Usage (KB),Health Score
+analysis.xlsx,21,6,0,0,8.0,100.0
+cashflow.xlsx,1188,7,8,0,340.11,99.6
+companies.xlsx,93,12,9,0,100.14,99.55
+documents.xlsx,1586,4,52,0,361.04,97.4
+profitandloss.xlsx,1277,15,231,0,723.63,88.45
+prosandcons.xlsx,17,4,6,0,4.51,99.7

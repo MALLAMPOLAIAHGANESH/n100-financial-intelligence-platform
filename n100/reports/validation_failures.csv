@@ -1,0 +1,9 @@
+Dataset,Column,Rule,Value,Severity
+companies,Unnamed: 1,Missing Values,NULL,WARNING
+companies,Unnamed: 5,Missing Values,NULL,WARNING
+companies,Unnamed: 6,Missing Values,NULL,WARNING
+companies,Unnamed: 7,Missing Values,NULL,WARNING
+companies,Unnamed: 8,Missing Values,NULL,WARNING
+companies,Unnamed: 9,Missing Values,NULL,WARNING
+companies,Unnamed: 10,Missing Values,NULL,WARNING
+companies,Unnamed: 11,Missing Values,NULL,WARNING
