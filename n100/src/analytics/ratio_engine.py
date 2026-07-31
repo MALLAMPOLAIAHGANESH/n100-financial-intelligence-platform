@@ -16,25 +16,25 @@ import pandas as pd
 import numpy as np
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(PROJECT_ROOT / "src"))
+sys.path.insert(0, str(PROJECT_ROOT))
 
-from database.db import engine
-from analytics.Profitability import (
+from src.database.db import engine
+from src.analytics.Profitability import (
     net_profit_margin_pct,
     operating_profit_margin_pct,
     return_on_equity_pct,
     return_on_capital_employed_pct,
     return_on_assets_pct,
 )
-from analytics.Leverage import (
+from src.analytics.Leverage import (
     debt_to_equity,
     interest_coverage_ratio,
     net_debt,
     high_leverage_flag,
     debt_free_label,
 )
-from analytics.Efficiency import asset_turnover
-from analytics.cagr import compute_cagr
+from src.analytics.Efficiency import asset_turnover
+from src.analytics.cagr import compute_cagr
 
 logging.basicConfig(
     level=logging.INFO,
@@ -120,7 +120,7 @@ def run_ratio_engine() -> pd.DataFrame:
 
     for df_ in (pl, bs):
         df_["year"]       = pd.to_numeric(df_["year"], errors="coerce")
-        df_["company_id"] = pd.to_numeric(df_["company_id"], errors="coerce")
+        df_["company_id"] = df_["company_id"].astype(str)
 
     logger.info("Merging profit_loss + balance_sheet...")
     merged = pd.merge(
@@ -134,8 +134,8 @@ def run_ratio_engine() -> pd.DataFrame:
     revenue      = _get_series(merged, "revenue", "net_sales", "sales", "total_revenue")
     net_profit   = _get_series(merged, "net_profit", "pat", "profit_after_tax", "net_income")
     op_profit    = _get_series(merged, "operating_profit", "ebit", "ebitda", "pbdit")
-    equity       = _get_series(merged, "shareholders_equity", "total_equity", "networth", "net_worth")
-    total_assets = _get_series(merged, "total_assets")
+    equity       = _get_series(merged, "shareholders_equity", "total_equity", "networth", "net_worth", "equity")
+    total_assets = _get_series(merged, "total_assets", "assets")
     total_debt   = _get_series(merged, "total_debt", "borrowings", "total_borrowings")
     cash         = _get_series(merged, "cash_and_cash_equivalents", "cash_equivalents", "cash")
     interest     = _get_series(merged, "interest_expense", "finance_cost", "finance_costs")
@@ -157,14 +157,14 @@ def run_ratio_engine() -> pd.DataFrame:
     co_id_col = get_col(co, "company_id", "id")
     if co_id_col:
         co = co.rename(columns={co_id_col: "company_id"})
-        co["company_id"] = pd.to_numeric(co["company_id"], errors="coerce")
+        co["company_id"] = co["company_id"].astype(str)
         meta_cols = ["company_id"] + [c for c in ["name", "company_name", "ticker", "symbol", "sector", "industry"] if c in co.columns]
         merged = merged.merge(co[meta_cols], on="company_id", how="left")
 
     logger.info("Computing CAGR KPIs...")
     cagr_df = compute_cagr_kpis(pl)
     if not cagr_df.empty:
-        cagr_df["company_id"] = pd.to_numeric(cagr_df["company_id"], errors="coerce")
+        cagr_df["company_id"] = cagr_df["company_id"].astype(str)
         merged = merged.merge(cagr_df, on="company_id", how="left")
 
     reports_dir = PROJECT_ROOT / "reports"

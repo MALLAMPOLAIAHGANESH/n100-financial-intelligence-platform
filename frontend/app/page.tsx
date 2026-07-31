@@ -6,9 +6,9 @@ import Logo from "@/components/Logo";
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#050816] text-gray-100 font-sans flex flex-col justify-between selection:bg-blue-500 selection:text-white">
+    <div className="min-h-screen bg-white dark:bg-[#050816] text-slate-900 dark:text-gray-100 font-sans flex flex-col justify-between selection:bg-blue-500 selection:text-white transition-colors duration-300">
       {/* Navbar */}
-      <header className="sticky top-0 z-50 bg-[#050816]/80 backdrop-blur-xl border-b border-gray-800/60 px-6 py-4">
+      <header className="sticky top-0 z-50 bg-white/80 dark:bg-[#050816]/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800/60 px-6 py-4 transition-colors">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 hover:opacity-95 transition-opacity">
             <Logo variant="horizontal" size="md" theme="dark" />

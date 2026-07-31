@@ -50,14 +50,6 @@ export default function DashboardHeader() {
           {theme === "dark" ? "☀️" : "🌙"}
         </button>
 
-        {/* Notification Bell Badge */}
-        <button className="relative p-2 rounded-xl bg-slate-100 dark:bg-gray-900 border border-slate-200 dark:border-gray-800 text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-white transition-all shadow-sm">
-          🔔
-          <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-blue-600 text-white text-[9px] font-extrabold flex items-center justify-center border border-white dark:border-[#050816]">
-            3
-          </span>
-        </button>
-
         {/* User Profile Avatar */}
         <div className="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-gray-800">
           <div className="w-8 h-8 rounded-full gradient-bg p-0.5 flex items-center justify-center shadow-md">

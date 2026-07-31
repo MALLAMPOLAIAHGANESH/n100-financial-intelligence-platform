@@ -21,7 +21,7 @@ from datetime import datetime
 import pandas as pd
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(PROJECT_ROOT / "src"))
+sys.path.insert(0, str(PROJECT_ROOT))
 
 REPORTS_DIR = PROJECT_ROOT / "reports"
 

@@ -7,7 +7,7 @@ import NiftyIndexChart from "@/components/NiftyIndexChart";
 
 export default function MarketsPage() {
   return (
-    <div className="min-h-screen bg-[#050816] text-gray-100 flex font-sans">
+    <div className="min-h-screen bg-white dark:bg-[#050816] text-slate-900 dark:text-gray-100 flex font-sans transition-colors duration-300">
       <Sidebar />
 
       <main className="flex-1 p-6 space-y-6 overflow-y-auto max-h-screen scrollbar-thin">

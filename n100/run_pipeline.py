@@ -9,7 +9,7 @@ import logging
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(PROJECT_ROOT / "src"))
+sys.path.insert(0, str(PROJECT_ROOT))
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 logger = logging.getLogger("FINANCEL_PIPELINE")
@@ -21,9 +21,9 @@ if __name__ == "__main__":
 
     # 1. Create Tables
     logger.info("\n--- STEP 1: Creating Database Tables ---")
-    from database.base import Base
-    from database.db import engine
-    import database.models
+    from src.database.base import Base
+    from src.database.db import engine
+    import src.database.models
 
     try:
         Base.metadata.create_all(bind=engine)
@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     # 2. Seed Data
     logger.info("\n--- STEP 2: Seeding Nifty 100 Constituent Data ---")
-    from database.seed_data import seed_database
+    from src.database.seed_data import seed_database
     try:
         seed_database()
         logger.info("✅ Database seeding completed successfully.")
@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
     # 3. Ratio Engine Execution
     logger.info("\n--- STEP 3: Executing Financial Ratio Engine ---")
-    from analytics.ratio_engine import run_ratio_engine
+    from src.analytics.ratio_engine import run_ratio_engine
     try:
         df = run_ratio_engine()
         logger.info(f"✅ Financial Ratio Engine executed successfully! Computed {len(df)} ratio records.")
