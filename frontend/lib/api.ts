@@ -39,7 +39,7 @@ export interface RatioItem {
 }
 
 export const authApi = {
-  login: async (email: string, password: str) => {
+  login: async (email: string, password: string) => {
     try {
       const response = await api.post("/auth/login", { email, password });
       return response.data;
@@ -57,7 +57,7 @@ export const authApi = {
       }
     }
   },
-  register: async (email: string, password: str) => {
+  register: async (email: string, password: string) => {
     try {
       const response = await api.post("/auth/register", { email, password });
       return response.data;
