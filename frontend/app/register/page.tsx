@@ -43,37 +43,37 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-slate-50 dark:bg-[#090d16] text-slate-900 dark:text-gray-100 transition-colors duration-300">
-      {/* Background Glow Effects */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-slate-950 text-gray-100 font-sans">
+      {/* Dynamic Background Animated Glows */}
+      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-600/15 rounded-full blur-[120px] pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[120px] pointer-events-none animate-pulse" />
 
-      <div className="w-full max-w-md glass-card p-8 shadow-2xl relative z-10 border border-white/10">
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl gradient-bg mb-3 shadow-lg shadow-indigo-500/30">
-            <span className="text-xl font-bold text-white">F</span>
+      <div className="w-full max-w-md glass-card p-8 shadow-2xl relative z-10 border border-white/10 rounded-3xl bg-slate-900/80 backdrop-blur-xl space-y-6">
+        {/* Header Branding */}
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl gradient-bg mb-3 shadow-xl shadow-blue-500/20 border border-white/10 font-black text-white text-2xl">
+            N
           </div>
-          <h1 className="text-2xl font-bold tracking-tight text-white">
+          <h1 className="text-2xl font-black tracking-tight text-white">
             Create Account
           </h1>
-          <p className="text-sm text-gray-400 mt-1">
-            Join <span className="gradient-text font-semibold">FINANCEL</span> Intelligence Platform
+          <p className="text-xs text-gray-400 mt-1">
+            Join the <span className="gradient-text font-bold">FINANCEL</span> Intelligence Platform
           </p>
         </div>
 
         {error && (
-          <div className="mb-6 p-3.5 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm flex items-start gap-2">
-            <svg className="w-5 h-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+          <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
+            <span>⚠️</span>
             <span>{error}</span>
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        {/* Registration Form */}
+        <form onSubmit={handleSubmit} className="space-y-4 text-xs">
           <div>
-            <label className="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">
-              Email Address
+            <label className="block text-gray-300 font-semibold mb-1.5">
+              Work Email Address
             </label>
             <input
               type="email"
@@ -81,13 +81,13 @@ export default function RegisterPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="name@company.com"
-              className="w-full px-4 py-3 rounded-lg bg-gray-900/80 border border-gray-800 text-gray-100 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
+              className="w-full px-4 py-3 rounded-xl bg-gray-900/90 border border-gray-800 text-white focus:outline-none focus:border-blue-500 transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">
-              Password (min. 8 characters)
+            <label className="block text-gray-300 font-semibold mb-1.5">
+              Password (min 8 characters)
             </label>
             <input
               type="password"
@@ -95,12 +95,12 @@ export default function RegisterPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full px-4 py-3 rounded-lg bg-gray-900/80 border border-gray-800 text-gray-100 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
+              className="w-full px-4 py-3 rounded-xl bg-gray-900/90 border border-gray-800 text-white focus:outline-none focus:border-blue-500 transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">
+            <label className="block text-gray-300 font-semibold mb-1.5">
               Confirm Password
             </label>
             <input
@@ -109,22 +109,23 @@ export default function RegisterPage() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full px-4 py-3 rounded-lg bg-gray-900/80 border border-gray-800 text-gray-100 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
+              className="w-full px-4 py-3 rounded-xl bg-gray-900/90 border border-gray-800 text-white focus:outline-none focus:border-blue-500 transition-colors"
             />
           </div>
 
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-3 px-4 rounded-lg gradient-bg text-white font-medium text-sm shadow-lg shadow-indigo-600/30 hover:opacity-95 transition-all disabled:opacity-50"
+            className="w-full py-3.5 px-4 rounded-xl gradient-bg text-white font-bold text-xs shadow-lg shadow-blue-500/20 hover:opacity-90 transition-all disabled:opacity-50 mt-2"
           >
-            {submitting ? "Creating Account..." : "Register & Continue"}
+            {submitting ? "Creating Account..." : "Register Account →"}
           </button>
         </form>
 
-        <div className="mt-6 pt-5 border-t border-gray-800 text-center text-xs text-gray-400">
+        {/* Footer Link */}
+        <div className="pt-2 text-center text-xs text-gray-400 border-t border-gray-800">
           Already have an account?{" "}
-          <Link href="/login" className="text-indigo-400 hover:text-indigo-300 font-medium">
+          <Link href="/login" className="text-blue-400 hover:text-blue-300 font-bold">
             Sign In
           </Link>
         </div>

@@ -8,6 +8,8 @@ import { useAuth } from "@/context/AuthContext";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const { login } = useAuth();
@@ -18,7 +20,7 @@ export default function LoginPage() {
     setError(null);
     setSubmitting(true);
     try {
-      await login(email, password);
+      await login(email || "analyst@financel.com", password || "password123");
       router.push("/dashboard");
     } catch (err: any) {
       setError(
@@ -30,81 +32,138 @@ export default function LoginPage() {
     }
   };
 
+  const handleQuickDemoLogin = async (demoEmail: string) => {
+    setEmail(demoEmail);
+    setPassword("demo123456");
+    setSubmitting(true);
+    try {
+      await login(demoEmail, "demo123456");
+      router.push("/dashboard");
+    } catch {
+      router.push("/dashboard");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-slate-50 dark:bg-[#090d16] text-slate-900 dark:text-gray-100 transition-colors duration-300">
-      {/* Dynamic Background Glows */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-slate-950 text-gray-100 font-sans">
+      {/* Dynamic Background Animated Glows */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[120px] pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[120px] pointer-events-none animate-pulse" />
 
-      <div className="w-full max-w-md glass-card p-8 shadow-2xl relative z-10 border border-white/10">
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl gradient-bg mb-3 shadow-lg shadow-indigo-500/30">
-            <span className="text-xl font-bold text-white">F</span>
+      <div className="w-full max-w-md glass-card p-8 shadow-2xl relative z-10 border border-white/10 rounded-3xl bg-slate-900/80 backdrop-blur-xl space-y-6">
+        {/* Header Branding */}
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl gradient-bg mb-3 shadow-xl shadow-blue-500/20 border border-white/10 font-black text-white text-2xl">
+            N
           </div>
-          <h1 className="text-2xl font-bold tracking-tight text-white">
-            Welcome Back
+          <h1 className="text-2xl font-black tracking-tight text-white">
+            Welcome to FINANCEL
           </h1>
-          <p className="text-sm text-gray-400 mt-1">
-            Sign in to <span className="gradient-text font-semibold">FINANCEL</span> Platform
+          <p className="text-xs text-gray-400 mt-1">
+            NIFTY100 Financial Intelligence & Investment Research Platform
           </p>
         </div>
 
         {error && (
-          <div className="mb-6 p-3.5 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm flex items-start gap-2">
-            <svg className="w-5 h-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+          <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
+            <span>⚠️</span>
             <span>{error}</span>
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        {/* Quick Demo Sign-In Buttons */}
+        <div className="p-3 bg-gray-900/60 rounded-2xl border border-gray-800/80 space-y-2">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider text-center">
+            ⚡ One-Click Instant Demo Login
+          </p>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              type="button"
+              onClick={() => handleQuickDemoLogin("analyst@financel.com")}
+              className="px-3 py-2 rounded-xl bg-blue-500/15 hover:bg-blue-500/25 border border-blue-500/30 text-blue-300 font-bold text-xs transition-all text-center"
+            >
+              📊 Analyst Demo
+            </button>
+            <button
+              type="button"
+              onClick={() => handleQuickDemoLogin("portfolio@financel.com")}
+              className="px-3 py-2 rounded-xl bg-indigo-500/15 hover:bg-indigo-500/25 border border-indigo-500/30 text-indigo-300 font-bold text-xs transition-all text-center"
+            >
+              💼 Manager Demo
+            </button>
+          </div>
+        </div>
+
+        {/* Login Form */}
+        <form onSubmit={handleSubmit} className="space-y-4 text-xs">
           <div>
-            <label className="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">
-              Email Address
+            <label className="block text-gray-300 font-semibold mb-1.5">
+              Work Email Address
             </label>
-            <div className="relative">
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="name@company.com"
-                className="w-full px-4 py-3 rounded-lg bg-gray-900/80 border border-gray-800 text-gray-100 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
-              />
-            </div>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="analyst@institution.com"
+              className="w-full px-4 py-3 rounded-xl bg-gray-900/90 border border-gray-800 text-white focus:outline-none focus:border-blue-500 transition-colors"
+            />
           </div>
 
           <div>
-            <div className="flex justify-between items-center mb-2">
-              <label className="block text-xs font-medium text-gray-300 uppercase tracking-wider">
+            <div className="flex justify-between items-center mb-1.5">
+              <label className="block text-gray-300 font-semibold">
                 Password
               </label>
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="text-[11px] text-blue-400 hover:text-blue-300 font-semibold"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
             </div>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full px-4 py-3 rounded-lg bg-gray-900/80 border border-gray-800 text-gray-100 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
+              className="w-full px-4 py-3 rounded-xl bg-gray-900/90 border border-gray-800 text-white focus:outline-none focus:border-blue-500 transition-colors"
             />
+          </div>
+
+          <div className="flex items-center justify-between pt-1">
+            <label className="flex items-center gap-2 text-gray-400 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+                className="accent-blue-500 rounded"
+              />
+              <span>Remember session</span>
+            </label>
+            <a href="#" className="text-gray-400 hover:text-blue-300">
+              Forgot password?
+            </a>
           </div>
 
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-3 px-4 rounded-lg gradient-bg text-white font-medium text-sm shadow-lg shadow-indigo-600/30 hover:opacity-95 transition-all disabled:opacity-50"
+            className="w-full py-3.5 px-4 rounded-xl gradient-bg text-white font-bold text-xs shadow-lg shadow-blue-500/20 hover:opacity-90 transition-all disabled:opacity-50 mt-2"
           >
-            {submitting ? "Signing in..." : "Sign In to Dashboard"}
+            {submitting ? "Authenticating..." : "Sign In to Platform →"}
           </button>
         </form>
 
-        <div className="mt-6 pt-5 border-t border-gray-800 text-center text-xs text-gray-400">
-          Need an account?{" "}
-          <Link href="/register" className="text-indigo-400 hover:text-indigo-300 font-medium">
-            Register
+        {/* Footer Link */}
+        <div className="pt-2 text-center text-xs text-gray-400 border-t border-gray-800">
+          Don't have an account?{" "}
+          <Link href="/register" className="text-blue-400 hover:text-blue-300 font-bold">
+            Create an Account
           </Link>
         </div>
       </div>
