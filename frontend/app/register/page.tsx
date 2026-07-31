@@ -5,37 +5,48 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
-  const { login } = useAuth();
+  const { register } = useAuth();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long.");
+      return;
+    }
+
     setSubmitting(true);
     try {
-      await login(email, password);
+      await register(email, password);
       router.push("/dashboard");
     } catch (err: any) {
       setError(
         err.response?.data?.detail ||
-          "Authentication failed. Please check your credentials."
+          "Registration failed. Email may already be in use."
       );
     } finally {
       setSubmitting(false);
     }
   };
 
-
   return (
     <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-[#090d16]">
-      {/* Dynamic Background Glows */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none" />
+      {/* Background Glow Effects */}
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-md glass-card p-8 shadow-2xl relative z-10 border border-white/10">
         <div className="text-center mb-8">
@@ -43,10 +54,10 @@ export default function LoginPage() {
             <span className="text-xl font-bold text-white">F</span>
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-white">
-            Welcome Back
+            Create Account
           </h1>
           <p className="text-sm text-gray-400 mt-1">
-            Sign in to <span className="gradient-text font-semibold">FINANCEL</span> Platform
+            Join <span className="gradient-text font-semibold">FINANCEL</span> Intelligence Platform
           </p>
         </div>
 
@@ -64,24 +75,20 @@ export default function LoginPage() {
             <label className="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">
               Email Address
             </label>
-            <div className="relative">
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="name@company.com"
-                className="w-full px-4 py-3 rounded-lg bg-gray-900/80 border border-gray-800 text-gray-100 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
-              />
-            </div>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="name@company.com"
+              className="w-full px-4 py-3 rounded-lg bg-gray-900/80 border border-gray-800 text-gray-100 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
+            />
           </div>
 
           <div>
-            <div className="flex justify-between items-center mb-2">
-              <label className="block text-xs font-medium text-gray-300 uppercase tracking-wider">
-                Password
-              </label>
-            </div>
+            <label className="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">
+              Password (min. 8 characters)
+            </label>
             <input
               type="password"
               required
@@ -92,19 +99,33 @@ export default function LoginPage() {
             />
           </div>
 
+          <div>
+            <label className="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              required
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="••••••••"
+              className="w-full px-4 py-3 rounded-lg bg-gray-900/80 border border-gray-800 text-gray-100 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
+            />
+          </div>
+
           <button
             type="submit"
             disabled={submitting}
             className="w-full py-3 px-4 rounded-lg gradient-bg text-white font-medium text-sm shadow-lg shadow-indigo-600/30 hover:opacity-95 transition-all disabled:opacity-50"
           >
-            {submitting ? "Signing in..." : "Sign In to Dashboard"}
+            {submitting ? "Creating Account..." : "Register & Continue"}
           </button>
         </form>
 
         <div className="mt-6 pt-5 border-t border-gray-800 text-center text-xs text-gray-400">
-          Need an account?{" "}
-          <Link href="/register" className="text-indigo-400 hover:text-indigo-300 font-medium">
-            Register
+          Already have an account?{" "}
+          <Link href="/login" className="text-indigo-400 hover:text-indigo-300 font-medium">
+            Sign In
           </Link>
         </div>
       </div>
