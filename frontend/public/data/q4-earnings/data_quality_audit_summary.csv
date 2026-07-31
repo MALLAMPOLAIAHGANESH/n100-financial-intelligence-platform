@@ -1,0 +1,17 @@
+Rule ID,Rule Name,Severity,Status,Details
+DQ-01,Primary Key Uniqueness,CRITICAL,PASS,id: all values unique and non-null
+DQ-02,Company-Year Uniqueness,CRITICAL,PASS,No duplicate (company_id, year) pairs
+DQ-03,Foreign Key Integrity,CRITICAL,PASS,company_id: all FK values valid
+DQ-04,Balance Sheet Validation,WARNING,PASS,Balance sheet equation holds for all rows
+DQ-05,Operating Profit Margin Validation,WARNING,PASS,OPM values in valid range [-100%, 100%]
+DQ-06,Positive Sales Validation,WARNING,PASS,revenue/sales all values > 0
+DQ-07,Year Validation,WARNING,PASS,year values in valid range [1990, 2035]
+DQ-08,Cash Flow Validation,WARNING,PASS,CFO+CFI+CFF = Net Change in Cash
+DQ-09,URL Validation,WARNING,PASS,all URLs valid
+DQ-10,Year Coverage,INFO,PASS,All companies have >= 3 years of data
+DQ-11,Dividend Validation,WARNING,PASS,dividend values in valid range [0%, 50%]
+DQ-12,Tax Rate Validation,WARNING,PASS,tax rate values in valid range [0%, 60%]
+DQ-13,Market Cap Validation,WARNING,PASS,all market cap values positive
+DQ-14,Ticker Validation,WARNING,PASS,all tickers valid format
+DQ-15,Missing Values,WARNING,PASS,no critical missing values
+DQ-16,Duplicate Records,WARNING,PASS,no fully duplicate rows

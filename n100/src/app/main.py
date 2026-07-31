@@ -8,7 +8,7 @@ from starlette.middleware.cors import CORSMiddleware
 
 from src.config.settings import settings
 from src.core.logger import logger
-from src.routers.v1 import health, companies, ratios, auth
+from src.routers.v1 import health, companies, ratios, auth, reports
 
 
 def create_app() -> FastAPI:
@@ -55,6 +55,7 @@ def create_app() -> FastAPI:
     app.include_router(health.router, prefix="/health", tags=["health"])
     app.include_router(companies.router, prefix="/v1/companies", tags=["companies"])
     app.include_router(ratios.router, prefix="/v1/ratios", tags=["ratios"])
+    app.include_router(reports.router, prefix="/v1/reports", tags=["reports"])
     app.include_router(auth.router, prefix="/auth", tags=["auth"])
 
     # Mount static frontend if available in container
