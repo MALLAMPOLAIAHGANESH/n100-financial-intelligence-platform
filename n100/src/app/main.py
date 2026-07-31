@@ -1,19 +1,22 @@
 from __future__ import annotations
 
+import os
+from pathlib import Path
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 
 from src.config.settings import settings
 from src.core.logger import logger
-from src.routers.v1 import health, companies, ratios
+from src.routers.v1 import health, companies, ratios, auth
 
 
 def create_app() -> FastAPI:
     """Create and configure the FastAPI application.
 
-    - Applies CORS middleware using origins from ``settings.CORS_ORIGINS``.
+    - Applies CORS middleware.
     - Includes versioned API routers.
-    - Registers a request logger middleware.
+    - Mounts static production frontend if available.
     """
     app = FastAPI(
         title=settings.APP_NAME,
@@ -38,7 +41,7 @@ def create_app() -> FastAPI:
             "request",
             method=request.method,
             url=str(request.url),
-            client=request.client.host,
+            client=request.client.host if request.client else "unknown",
         )
         response = await call_next(request)
         logger.info(
@@ -48,12 +51,22 @@ def create_app() -> FastAPI:
         )
         return response
 
-    # Register routers
+    # Register API routers
     app.include_router(health.router, prefix="/health", tags=["health"])
     app.include_router(companies.router, prefix="/v1/companies", tags=["companies"])
     app.include_router(ratios.router, prefix="/v1/ratios", tags=["ratios"])
-    from src.routers.v1 import auth
     app.include_router(auth.router, prefix="/auth", tags=["auth"])
 
+    # Mount static frontend if available in container
+    possible_out_dirs = [
+        Path("/app/frontend/out"),
+        Path("./frontend/out"),
+        Path(__file__).resolve().parents[3] / "frontend" / "out",
+    ]
+    for out_dir in possible_out_dirs:
+        if out_dir.exists() and out_dir.is_dir():
+            app.mount("/", StaticFiles(directory=str(out_dir), html=True), name="static_frontend")
+            logger.info(f"Mounted static frontend from {out_dir}")
+            break
 
     return app
