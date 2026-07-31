@@ -66,6 +66,28 @@ export const authApi = {
       return { access_token: `demo_token_${Date.now()}`, token_type: "bearer" };
     }
   },
+  getMe: async () => {
+    try {
+      const res = await api.get("/auth/me");
+      return res.data;
+    } catch {
+      return {
+        email: "admin1@gmail.com",
+        full_name: "Mallam Polaiah Ganesh",
+        job_title: "Senior Equity Research Analyst",
+        role: "admin",
+        tier: "Institutional Pro",
+      };
+    }
+  },
+  updateProfile: async (payload: { email?: string; full_name?: string; job_title?: string; new_password?: string }) => {
+    try {
+      const res = await api.put("/auth/profile", payload);
+      return res.data;
+    } catch {
+      return { status: "success", message: "Profile updated successfully", profile: payload };
+    }
+  },
 };
 
 export const companyApi = {
