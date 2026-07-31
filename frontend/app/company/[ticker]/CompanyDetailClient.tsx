@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import Sidebar from "@/components/layout/Sidebar";
 import { companyApi } from "@/lib/api";
 import ExportCsvButton from "@/components/ExportCsvButton";
+import CompanyModelsCard from "@/components/CompanyModelsCard";
 
 const Plot = dynamic(() => import("react-plotly.js"), { ssr: false });
 
@@ -249,6 +250,11 @@ export default function CompanyDetailClient({ params }: { params: Promise<{ tick
                 ))}
               </div>
             </div>
+          </div>
+
+          {/* Advanced Financial Intelligence Models */}
+          <div className="lg:col-span-12">
+            <CompanyModelsCard />
           </div>
 
           {/* Ratios Snapshot */}
